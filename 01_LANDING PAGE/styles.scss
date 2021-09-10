@@ -1,0 +1,154 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    
+    padding: 0.7rem;
+    font-size: 1.3rem;
+    color: white;
+    background-color: #000;
+    .header__logo{
+        font-size: 2.5rem;
+    }
+    .header__links{
+    
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        a{
+            margin-right: 1rem;
+            text-decoration: none;
+            text-transform: none;
+            color: white;
+            
+         }
+    }
+}
+
+.inicio{
+    background-color: #000;
+    display: flex;
+    padding: 7rem;
+    .inicio__contenedor{
+        display: flex;
+        flex-direction: column;
+        margin: 0rem 3rem;
+        color: white;
+        
+    }
+    &__titulo{
+        font-size: 2.5rem;
+    }
+   
+    .inicio__img{
+        width: 50rem;
+        height: 18rem;
+        background-color: green;
+    }
+}
+
+.infoRandom{
+    display: flex;
+    flex-direction: column;
+
+    &__titulo{
+        text-align: center;
+        margin: 3rem;
+        font-size: 5rem;
+       
+    }
+    &__container{
+        display: flex;
+        
+        margin:  0rem 7rem;
+        justify-content: center;
+        gap: 2rem;
+        
+    }
+    &__son{
+        display: flex;
+        flex-direction: column;
+        
+        .infoRandom__color{
+            width: 10rem;
+            height: 10rem;
+            background-color: green;
+        }
+        .infoRandom__texto{
+            width: 10rem;
+            
+        }
+       
+    }
+
+
+    &__cita{
+        padding: 4rem 10rem;
+        
+        background-color: gray;
+        &-texto{
+            font-size: 2.5rem;
+        }
+        &-autor{
+            text-align:right;
+            font-size: 1.5rem;
+        }
+    }
+    
+}
+.bajo{
+   
+    &__container{
+        height: fit-content;
+        margin: 5rem 20rem;
+        padding: 1rem 7rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgb(70, 100, 248);
+        
+    }
+    &__btn{
+        border: 5px solid white;
+        padding: 0.3rem;
+
+    }
+}
+
+.btn{
+   
+    width: fit-content;
+    padding: 0.7rem 1.3rem;
+    border-radius: 15%;
+    
+    &-blue{
+        background-color: rgb(68, 135, 158);
+        border: none;
+        color: white;
+    }
+    &-border{
+        border: 3px solid white;
+        color: white;
+        
+    }
+}
+
+footer{
+    background-color: black;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    h3{
+        text-align: center;
+        color: white;
+        
+    }
+}
