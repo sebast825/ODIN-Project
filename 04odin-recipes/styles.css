@@ -7,53 +7,47 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background: #444;
 }
 
 h1 {
   text-align: center;
+  color: #4ae;
+  font-size: 3rem;
+  margin: 0.5rem;
 }
 
 .almacen {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 1rem;
 }
 
-.container {
-  min-width: 500px;
-  max-width: 960px;
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-  border: 2px solid black;
+.almacen .asd {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 100%;
+  text-align: auto;
+  margin: 1rem 0.3rem;
+  padding: 1rem 2.5rem;
 }
 
-.container .item {
-  position: relative;
-  color: red;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  /* margin: 0; */
-  -webkit-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
+.almacen .asd:active {
+  background-color: #4ae;
 }
 
-.container .variables {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+.almacen button {
+  background-color: transparent;
+  border: 3px solid #4ae;
+  color: #fff;
 }
 
-.container .variables.opcionColor {
+.almacen .opcionColor {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -66,16 +60,25 @@ h1 {
           justify-content: center;
 }
 
-.container .variables.opcionColor > div {
+.almacen .opcionColor .elegirColor {
   margin: 1rem 0.3rem;
+  padding: 1rem;
 }
 
-.container .variables.opcionColor .elegirColor:active {
-  margin: 1rem 0.3rem;
-  background-color: red;
+.almacen .opcionColor .elegirColor :active {
+  background-color: #4ae;
 }
 
-.container .variables .fromulario {
+.almacen .opcionColor .elegirColor #colorInput {
+  width: 100%;
+}
+
+.almacen .opcionColor .atr {
+  margin: 1rem 0.3rem;
+  background-color: #4ae;
+}
+
+.almacen .fromulario {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,11 +88,47 @@ h1 {
           flex-direction: column;
 }
 
-.container .variables .fromulario .numCasillasLabel {
+.almacen .fromulario .numCasillasLabel {
   text-align: center;
+  color: #fff;
+  font-size: 1.3rem;
 }
 
-@media screen and (max-width: 600px) {
+.almacen .container {
+  min-width: 500px;
+  max-width: 960px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  border: 12px solid #4ae;
+  background-color: #eee;
+}
+
+.almacen .container .item {
+  position: relative;
+  color: red;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /* margin: 0; */
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.almacen .container .variables {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+@media screen and (max-width: 320px) {
   .almacen {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -98,30 +137,37 @@ h1 {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    margin: 0;
     /* justify-content: space-evenly; */
   }
-  .container {
-    min-width: 300px;
+  .almacen .container {
+    margin: 0;
+    min-width: 250px;
+    height: auto;
   }
-  .opcionColor {
+  .almacen .fromulario > input {
+    margin: 0;
+    width: 90vw;
+  }
+  .almacen .numCasillasLabel {
+    margin-bottom: 1rem;
+  }
+  .almacen .opcionColor {
+    width: 90vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     margin: 0;
   }
-  .opcionColor > label {
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-    -ms-grid-column-align: center;
-        justify-self: center;
+  .almacen .opcionColor .elegirColor {
+    width: 45vw;
+    min-height: 22vw;
     margin: auto;
   }
 }
