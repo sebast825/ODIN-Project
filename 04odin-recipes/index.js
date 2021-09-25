@@ -13,8 +13,9 @@ const colorElegir = document.getElementById('colorInput');
 //variable para cambiarColor
 let elColor;
 let elegirColor=[]
+let click;
 
-function aplicarCasillas(e=10){	
+function aplicarCasillas(e=16){	
 	console.log(e)
 	//cantidad de casillas totales
 	let casillas = e*e		
@@ -76,6 +77,7 @@ function casillass(e){
 
 //le da color de fondo
 function cambiarColor(){
+	if(click==false)return;
 	// console.log('asd')
 	console.log('cambiarcolor')
 	if(elColor==undefined){
@@ -117,15 +119,17 @@ function btnActivo(){
 
 // console.log(opcionColor.childNodes)
 document.formulario.addEventListener('change',casillass)
-btnLimpiar.addEventListener('click',sinColorFondo)
+btnLimpiar.addEventListener('click',sinColorFondo);
 
 //elige el color
-colorTradicional.addEventListener('click',()=>elColor=0)
-colorRandom.addEventListener('click',()=>elColor=1)
-colorWhite.addEventListener('click',()=>elColor=2)
+colorTradicional.addEventListener('click',()=>elColor=0);
+colorRandom.addEventListener('click',()=>elColor=1);
+colorWhite.addEventListener('click',()=>elColor=2);
 colorElegir.addEventListener('change',function(){
 	elColor=3;
 	elegirColor=this.value;
-	console.log(this.value)
+	console.log(this.value);
 })
-btnColor.forEach(elem=>elem.addEventListener('click',btnActivo))
+btnColor.forEach(elem=>elem.addEventListener('click',btnActivo));
+document.addEventListener('mousedown',()=>click=false);
+document.addEventListener('mouseup',()=>click=true);
