@@ -10,7 +10,7 @@ let puntosPersona = 0;
 //escribe la respuesta que se va a ver
 let valor=''
 // let valorInput = maquina[input]
-
+console.log(puntosMaq.parentElement)
 //compara entre la mauina y la persona
 let comparar = (valorInput)=>{
     let num = Math.floor(Math.random()*3)+0;    
