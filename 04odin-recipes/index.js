@@ -11,7 +11,7 @@ const colorElegir = document.getElementById('colorInput');
 
 
 //variable para cambiarColor
-let elColor=[]
+let elColor;
 let elegirColor=[]
 
 function aplicarCasillas(e=10){	
@@ -78,22 +78,34 @@ function casillass(e){
 function cambiarColor(){
 	// console.log('asd')
 	console.log('cambiarcolor')
-	
-	if(elColor==0){
-		this.style['background-color']='red';
+	if(elColor==undefined){
+		this.style['background-color']='#1ae';
+	}
+	else if(elColor==0){
+		if(this.style['background-color']=='transparent'){		
+			let color = 55;
+			this.style['background-color']=`rgb(${color},${color},${color})`
+		}else {
+			//separa el rgb hasta tomar los valores		
+			a = this.style['background-color'].split("(")[1].split(")")[0];
+			a = a.split(",");
+			let color = parseFloat(a)+30
+			//para que siempre se quede en gris
+			if(color>=240){
+				color=220				 
+			}	
+			this.style['background-color']=`rgb(${color},${color},${color})`
+		}		
 	}else if(elColor==1){
 		let color1 = Math.floor(Math.random()*256)+0;
 		let color2 = Math.floor(Math.random()*256)+0;
 		let color3 = Math.floor(Math.random()*256)+0;
-		this.style['background-color']=`rgb(${color1},${color2},${color3})`
-		
+		this.style['background-color']=`rgb(${color1},${color2},${color3})`		
 	}else if(elColor==2){		
-		this.style['background-color']='transparent'
-		// this.style['background-color']=`rgb(${color1},${color2},${color3})`
-	}else if(elColor==3)
+		this.style['background-color']='transparent'		
+	}else if(elColor==3){
 		this.style['background-color']=`${elegirColor}`
-	// if(this.style['background-color']=='transparent'){
-	
+	}	
 }
 
 function btnActivo(){
@@ -102,7 +114,6 @@ function btnActivo(){
 	})
 	this.classList.add('atr')
 }
-
 
 // console.log(opcionColor.childNodes)
 document.formulario.addEventListener('change',casillass)
