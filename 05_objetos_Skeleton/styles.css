@@ -1,0 +1,110 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: #06c;
+}
+
+h1{
+	font-size: 3rem;
+	padding: 0;
+	/* margin: ; */
+}
+
+h2{
+	font-size: 2rem;
+	margin: 0;
+}
+
+h3{
+	font-size: 1.3rem;
+}
+
+h4{
+	font-style:oblique;
+}
+
+ header{
+	top: 0;
+	height: 1rem;
+	width: 100%;
+} 
+
+header > a{
+	 margin: 1rem; 
+	color: white;
+	text-decoration: none;
+}
+
+.container{
+	 margin: 2rem; 	
+	display: flex;	
+	 gap: 4rem ; 
+
+}
+.container__formulario{
+	width: min-content;
+	height: min-content;
+	background-color: rgb(235, 30, 50);
+	padding: 4rem 4rem;
+	padding-top: 1rem;
+	border-radius: 1rem;
+	
+	
+}
+
+#formulario{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+#formulario > label{
+	display: flex;
+	flex-direction: column;	
+	gap: 0.3rem 1rem;
+}
+
+#formulario > label > input{
+	width: 10rem;
+}
+
+.container__libro{
+	border-radius: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap:3rem;
+	padding: 2rem 0.5rem;
+	background: #000;
+	position: static;
+}
+
+.libro__unico{
+	
+	width: 10rem;
+	padding: 1.5rem;
+	 padding-left: 2.5rem; 
+	 padding-right: 0rem; 
+	background-color: #6f6;
+	border-radius: 1rem;
+}
+
+.libro__unico > button{
+	background-color: #464;
+	color: #fff;
+	font-weight: 500;
+	padding: 0.3rem;
+}
+
+button{
+	border-radius: 0.3rem;
+}
+
+.formulario__btn{
+	background-color: #fff;
+	color: black;
+	box-shadow: 5px 5px 20px black;
+}
+
+
