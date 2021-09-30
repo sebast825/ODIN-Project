@@ -4,16 +4,18 @@ const eliminarLibro = document.querySelectorAll('.delete');
 const divLibro = document.querySelector('.container__libro');
 let myLibrary = [];
 
-
-function Book(title,author,page,read){
-  this.title = title,
-  this.author = author,
-  this.page = page,
-  this.read = read,
-  this.info = function(){
-    return(`${this.title}, ${author}, ${this.page}, ${this.read}  `);
+let Book = class Book{
+  constructor(title,author,page,read){
+    this.title = title,
+    this.author = author,
+    this.page = page,
+    this.read = read
+  }
+  info(){
+    return(` hola ${this.title}, ${this.author}, ${this.page}, ${this.read}  `);
   }
 }
+
 
 function addLibrary(elem){
   myLibrary.push(elem);
@@ -78,7 +80,7 @@ function insertarLibro(elem){
 guardar_LocalStorage()
 }
 
-// let thehobit = new Book('elhobit','niidea',450,'No');
+//  let thehobit = new Book('elhobit','niidea',450,true);
 // let harry = new Book('harry','popo',320,'Yes');
 
 // addLibrary(thehobit);
