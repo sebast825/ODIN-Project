@@ -1,0 +1,1 @@
+(()=>{"use strict";(()=>{let e=e(new Date,1);console.log(e)})()})();
