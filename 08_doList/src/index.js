@@ -11,25 +11,45 @@ app()
 console.log(saludar())
 let container = document.querySelector('.container');
 let almacenar=[];
-const Tarea = class Tarea{
+
+const Tarea = class Tarea{	
 	constructor(title, desc, dueDate,complete=false){
-		this.title = title,
-		this.desc = desc,
-		this.dueDate = dueDate,
-		this.complete = complete
-		this.title = function(a){
-			return this.title = a
-		}
-		this.desc = function(desc){
-			return this.desc = desc
-		}		
-		this.duaDate = function(dueDate){
-			return this.dueDate = dueDate
-		}
-		this.complete = function(){
-			return this.complete = !this.complete
-		}
+		this.__uniqueid = '',
+		this._title = title,
+		this._desc = desc,
+		this._dueDate = dueDate,
+		this._complete = complete
+		
+		
 	}	
+	set title (title){
+		return this._title = title
+	}
+	set desc(desc){
+		return this._desc = desc
+	}		
+	set duaDate (dueDate){
+		return this._dueDate = dueDate
+	}
+	set complete(a){
+		return this._complete = !this.complete
+	}
+	get actualizarNumTarea (){
+		console.log('almacenar',almacenar[0].split(' '))
+		let numId = 0;
+		if (almacenar.length!=0){
+			let idAnterior =almacenar[-1][0];
+			numId = idAnterior+1;
+		}		
+		return this.__uniqueid = numId;
+		
+	}
+	
+	get props(){
+		let elem =[`${this.__uniqueid} ${this._title}${this._desc} ${this._dueDate}${this.num}`]
+	
+		almacenar.push(elem)
+	}
 		
 }
 
@@ -39,7 +59,9 @@ const Tarea = class Tarea{
 
 function mostrarDatos(){
 	almacenar.forEach(elem=>{
-		console.log(elem[0],elem[1])
+		console.log(elem)
+		//  elem.slice(' ')
+		console.log('dividido',elem[0])
 		let cont = document.createElement('DIV')
 		let nameTask = document.createElement('H2');
 		let descTask = document.createElement('P')
@@ -65,16 +87,18 @@ function getFormulario(e){
 	let elem;
 	if (infoName!=undefined){
 		elem = new Tarea()
-		elem.title(infoName)
+		elem.title=(infoName)
 	}if (infoTask!=undefined){
-		elem.desc(infoTask)
+		elem.desc=(infoTask)
 	}if (infoDate!=undefined){
-		elem.duaDate(infoDate)
+		elem.duaDate=(infoDate)
 	}
-	
-	console.log(elem)
-	almacenar.push(elem)
-	console.log(almacenar)
+	let obj = [infoName,infoTask,infoDate]
+	// console.log(elem)
+	elem.actualizarNumTarea;
+	// almacenar.push(obj)
+	 elem.props	
 	mostrarDatos()
+	console.log(almacenar)
 }
 document.formulario.addEventListener('submit',getFormulario)
