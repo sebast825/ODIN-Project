@@ -13,11 +13,19 @@ let Tarea = class Tarea{
 		this.complete = complete	
 		}
 		asd(){
-			// console.log('desde asd')
-			let b = (`${this.numId}, ${this.title},${this.desc},${this.dueDate},${this.complete}`)
-			almacenar.push(b)
-			console.log(almacenar)			
+			let c = {numId:this.numId, title:this.title, desc:this.desc, dueDate:this.dueDate, complete:this.complete} 
+			 almacenar.push(c);
+			// almacenar.push(b)
+			console.log(almacenar)					
 		}	
+		leer(){
+			let c = {numId:this.numId, title:this.title, desc:this.desc, dueDate:this.dueDate, complete:this.complete} 
+			return c
+		}
+		remover(){
+			almacenar.pop(elem)
+			console.log(almacenar)
+		}
 	
 	}		
 
