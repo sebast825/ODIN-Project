@@ -1,5 +1,5 @@
 import {  addDays } from "date-fns"
-import saludar from './clases.js'
+import {Tarea,almacenar} from './clases.js'
 const app =()=>{
 	const date = new Date()
 	let asd = addDays(date,1)
@@ -8,27 +8,8 @@ const app =()=>{
 app()
 
 // 'strict mode';
-console.log(saludar())
-let container = document.querySelector('.container');
-let almacenar=[];
 
-let Tarea = class Tarea{
-		constructor(numId,title, desc, dueDate,complete=false){
-			
-		this.numId = numId,
-		this.title = title,
-		this.desc = desc,
-		this.dueDate = dueDate
-		this.complete = complete	
-		}
-		asd(){
-			// console.log('desde asd')
-			let b = (`${this.numId}, ${this.title},${this.desc},${this.dueDate},${this.complete}`)
-			almacenar.push(b)
-			console.log(almacenar)			
-		}	
-	
-	}		
+let container = document.querySelector('.container');
 
 
 function getFormulario(e){
