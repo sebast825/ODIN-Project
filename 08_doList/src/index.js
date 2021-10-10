@@ -1,5 +1,7 @@
 import {  addDays } from "date-fns"
-import {Tarea,almacenar} from './clases.js'
+// import {Tarea,almacenar} from './clases.js'
+const create = require('./create.js')
+
 const app =()=>{
 	const date = new Date()
 	let asd = addDays(date,1)
@@ -11,45 +13,7 @@ app()
 
 let container = document.querySelector('.container');
 
-
-function getFormulario(e){
-	e.preventDefault()
-	//  r.split(',')	 
-	//   console.log('alamacenar',almacenar)
-	//   let convertir = JSON.stringify(a)
-	//   let pedacito = convertir.split(':')
-	//   console.log(pedacito[0])
-	 let infoName = this.nameTask.value;
-	 let infoTask = this.descTask.value;
-	 let infoDate = this.dateTask.value ? this.dateTask.value  : undefined;
-	let numId = crearId();
-	console.log(numId)
-	let elem;
-	if (infoName!=undefined){
-		elem = new Tarea(numId,infoName,infoTask,infoDate)
-		}
-		// elem.numId()
-		elem.asd()	
-	// console.log(elem)
-	// almacenar.push(elem)	 
-	// mostrarDatos()
-}
-document.formulario.addEventListener('submit',getFormulario)
-
-
-function crearId(){	
-	let numId;
-		if(almacenar.length==0){
-			numId= 0;
-		}else{
-			let lastId = almacenar[almacenar.length-1];
-			numId = parseInt(lastId.split(',')[0])+1			
-		}
-		return numId
-		// let a = almacenar[almacenar.length - 1]
-		// console.log('esto es a',a.split(',')[0])
-}
-
+document.formulario.addEventListener('submit',create.getFormulario)
 
 
 
