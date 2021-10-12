@@ -17,16 +17,38 @@
 	</form>
 	<br>
 	<form action="" name="formularioEdit">
+		<div>
+			<h2>Project:</h2> <p class="projectNameEdit">-</p></div>
 		<input type="text" name="nameTaskEdit" class="nameTask">
-		<input type="text" name="descTaskEdit" class="descTask" id="">
-	
-		
+		<input type="text" name="descTaskEdit" class="descTask" id="">		
 		<input type="date" name="dateTaskEdit" class="dateTask">
 		<button type="submit"></button>
 	</form>
-	<div class="container">
 
+	Para los projectos
+	<br>
+	<form action="" name="createProject">
+		<input type="text" name="nameProject" class="nameProject">
+		<button type="submit"></button>
+	</form>
+	<br>
+	<form action="" name="tareaProject">
+		<div>
+		<h2>Project:</h2> <p class="projectName"></p></div>
+		<input type="text" name="nameTareaProject" class="nameTareaProject">
+		<input type="text" name="descTareaProject" class="descTareaProject" id="">		
+		<input type="date" name="dateTareaProject" class="dateTareaProject">
+		<button type="submit"></button>
+	</form>
+	 <div class="container">
+		<h2>Tareas</h2>
 	</div>
+	<!-- <div class="containerToday">
+		<h2>Today</h2>
+	</div>
+	<div class="containerProjects">
+		<h2>Project</h2>
+	</div>  -->
 
 	<script src="main.js"></script>
 </body>

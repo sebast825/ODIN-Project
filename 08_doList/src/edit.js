@@ -1,11 +1,19 @@
 const clases = require('./clases.js');
 const create = require('./create.js')
+
 let container = document.querySelector('.container');
+let projectNameEdit = document.querySelector('.projectNameEdit')
 let guardarId=[]
 
 //pone los datos en el formulario
 function editHijo(elem){
 	console.log(elem)
+	//si la tarea tiene un Projecto aparece el nombre del projecto
+	if(elem.project){
+		projectNameEdit.innerText= elem.project
+	}else{
+		projectNameEdit.innerText= '-'
+	}
 	let form = document.formularioEdit
 	guardarId= elem.numId
 	form.nameTaskEdit.value = elem.title
@@ -42,10 +50,18 @@ function crearObjetoEditado(){
 	let infoName = form.nameTaskEdit.value;
 	let infoTask = form.descTaskEdit.value;
 	let infoDate = form.dateTaskEdit.value ? form.dateTaskEdit.value  : undefined;
-	let numId = guardarId
-
-	let elem = new clases.Tarea(numId,infoName,infoTask,infoDate)	
-	
+	let numId = guardarId;
+	let project;
+	let elem;
+	if(projectNameEdit.innerText!='-'){
+		project=projectNameEdit.innerText;
+	}
+	if(project){
+		 elem = new clases.Tarea(numId,infoName,infoTask,infoDate,project);	
+	}else{
+		 elem = new clases.Tarea(numId,infoName,infoTask,infoDate);	
+	}
+		
 	return elem
 
 }
