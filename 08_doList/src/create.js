@@ -8,6 +8,7 @@ const fecha = require('./fecha.js')
 let container = document.querySelector('.container');
 let projectName = document.querySelector('.projectName');
 let containerToday = document.querySelector('.containerToday');
+let containerProjects = document.querySelector('.containerProjects');
 // const asd = index.
 function getFormulario(e){
 	e.preventDefault();
@@ -55,11 +56,23 @@ function mostrarDatos(elem){
 
 	container.appendChild(cont);
 	//pone la tarea en today
-	let atr = fecha.htmlToday(elem.dueDate)
+	/////////////////////////////////////////////////////////////////
+	//MAS ADELANTE MODIFICAR A QUE SE PONGA CUANDO CLIKIAS EN CONTENEDOR TODAY
+	if(elem.dueDate!=undefined){
+		let atr = fecha.htmlToday(elem.dueDate)
 	if(atr){
 		containerToday.appendChild(cont);
 		
 	}
+	
+	}
+	//si el projecto tiene nombre se lo agrega al contenedor del projecto
+	if(elem.project!=''){
+		console.log('estamos creando cosas: ', elem.project)
+		let nameActual = document.querySelector(`.${elem.project}`)
+		nameActual.appendChild(cont)
+	}
+	
 	
 
 	
@@ -103,11 +116,12 @@ function mostrarProject(project){
 	let btnAgregar = document.createElement('button')
 	// btnAgregar.setAttribute('type','submit')
 	cont.setAttribute('name',project.nameProject)
+	cont.classList.add(project.nameProject)
 	h2.innerText = project.nameProject;
 	
 	cont.appendChild(h2)
 	cont.appendChild(btnAgregar)
-	container.appendChild(cont);
+	containerProjects.appendChild(cont);
 	
 	btnAgregar.addEventListener('click',()=>{
 		projectName.innerText= project.nameProject
@@ -131,7 +145,7 @@ function tareaProject(e){
 	let info = elem.leer();
 	  mostrarDatos(info);
 	// console.log(projectNames)
-	elem.rep()
+	
 }
 
 
