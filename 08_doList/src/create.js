@@ -1,12 +1,13 @@
 
 const clases = require('./clases.js');
 const edit = require('./edit.js')
+const fecha = require('./fecha.js')
 
 // const index = require('./index.js')
 
 let container = document.querySelector('.container');
 let projectName = document.querySelector('.projectName');
-
+let containerToday = document.querySelector('.containerToday');
 // const asd = index.
 function getFormulario(e){
 	e.preventDefault();
@@ -51,7 +52,15 @@ function mostrarDatos(elem){
 	cont.appendChild(btnEdit)
 	cont.appendChild(nameTask);
 	cont.appendChild(descTask);
+
 	container.appendChild(cont);
+	//pone la tarea en today
+	let atr = fecha.htmlToday(elem.dueDate)
+	if(atr){
+		containerToday.appendChild(cont);
+		
+	}
+	
 
 	
 	btnEdit.addEventListener('click',()=>{
