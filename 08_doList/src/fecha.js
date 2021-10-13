@@ -25,7 +25,9 @@ function fechaHoy(){
 
 //compara la fecha del objeto ocn la actual a ver si devuelve true o no
 function devolverFecha(){
+	console.log(nuvaFecha,'nueva fecha')
 			let dividir = nuvaFecha.split('-')
+			console.log(dividir,'nueva fecha')
 			let dayNf = parseFloat(dividir[2])
 			let monthNf = parseFloat(dividir[1])
 			let yearNf = parseFloat(dividir[0])
@@ -35,14 +37,15 @@ function devolverFecha(){
 			let restarYear = parseFloat(fechaActual[2]) - yearNf;
 			console.log('nueva fecha',nuvaFecha)
 
-			if (restarYear<1&&restarMonth<1&&restarDay<=1&&restarDay>=-1){	
-				console.log('esta en el if')		
+			if (restarYear<1&&restarYear>-1&&restarMonth<1&&restarMonth>-1&&restarDay<=1&&restarDay>=-1){	
+				console.log('esta en el if')	
+				console.log('restarDay',restarDay,'restarMonth',restarMonth,restarYear)	
 				return true				
 			}
 			
 			console.log('nueva fecha',nuvaFecha)
 			console.log('fecha actual',fechaActual)
-			console.log(restarDay,restarMonth,restarYear)
+			
 			console.log(dayNf,monthNf,yearNf)
 			console.log(fechaActual[2],fechaActual[1],fechaActual[0])	
 		

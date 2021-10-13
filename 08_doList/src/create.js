@@ -28,8 +28,13 @@ function getFormulario(e){
 		
 	elem.asd();			
 	let info = elem.leer();
-	mostrarDatos(info);
+	divSelect.colocarTareaEn(info);
 }
+
+
+
+
+	
 
 function crearId(){	
 	let numId;
@@ -162,9 +167,8 @@ function tareaProject(e){
 	let elem = new clases.TareaProject(numId,infoName,infoTask,infoDate,projectNames);
 		
 	elem.guardar();			
-	let info = elem.leer();
-	  mostrarDatos(info);
-	// console.log(projectNames)
+	
+	//es para mostrar la tarea
 	bsucarPorjecto(projectName.innerHTML)
 	
 }
@@ -179,7 +183,9 @@ function bsucarPorjecto(name){
 }
 
 
+
 exports.getFormulario = getFormulario;
 exports.mostrarDatos = mostrarDatos;
 exports.createProjec = createProject;
 exports.tareaProject = tareaProject;
+

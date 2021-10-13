@@ -13,20 +13,26 @@ const divSelect = require('./divSelect.js')
 // app()
 
 // 'strict mode';
-const tareaProjectBtn = document.querySelector('.tareaProject-btn');
-const formularioEditBtn = document.querySelector('.formularioEdit-btn')
-
-tareaProjectBtn.addEventListener('click',()=>{
-	tareaProject.style.visibility='hidden';
-})
-formularioEditBtn.addEventListener('click',()=>{
-	formularioEdit.style.visibility='hidden';
-})
 
 const tareasSelect = document.querySelector('.tareasSelect');
 const todaySelect = document.querySelector('.todaySelect')
 todaySelect.addEventListener('click',divSelect.mostrarToday)
 tareasSelect.addEventListener('click',divSelect.mostrarTareas)
+
+
+
+const tareaProjectBtn = document.querySelector('.tareaProject-btn');
+const formularioEditBtn = document.querySelector('.formularioEdit-btn')
+const container = document.querySelector('.container');
+const containerToday = document.querySelector('.containerToday');
+
+tareaProjectBtn.addEventListener('click',()=>{
+	tareaProject.style.visibility='hidden';
+
+})
+
+
+
 
 document.formulario.addEventListener('submit',create.getFormulario)
 document.formularioEdit.addEventListener('submit',edit.editarTarea)
@@ -35,3 +41,4 @@ document.createProject.addEventListener('submit',create.createProjec)
 document.tareaProject.addEventListener('submit',create.tareaProject)
 
 
+formularioEditBtn.addEventListener('click',divSelect.mostrarTareaActualizada)
