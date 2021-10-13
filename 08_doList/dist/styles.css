@@ -7,6 +7,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
+  height: 100vh;
 }
 
 .contenedorTotal .formsPrincpales {
@@ -38,6 +40,12 @@
   width: 90%;
 }
 
+.contenedorTotal .formsPrincpales a {
+  text-decoration: none;
+  text-transform: none;
+  color: black;
+}
+
 .contenedorTotal .formsSecundarios .formularioEdit,
 .contenedorTotal .formsSecundarios .tareaProject {
   visibility: hidden;
@@ -60,6 +68,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 50;
 }
 
 .contenedorTotal .formsSecundarios .formularioEdit .inForm,
@@ -108,5 +117,20 @@
 .contenedorTotal .formsSecundarios .formularioEdit .inForm .date,
 .contenedorTotal .formsSecundarios .tareaProject .inForm .date {
   width: 8rem;
+}
+
+.contenedorTotal .vemos {
+  background-color: green;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.contenedorTotal .vemos .container, .contenedorTotal .vemos .containerToday, .contenedorTotal .vemos .containerProjectss {
+  visibility: visible;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: lightblue;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -9,7 +9,7 @@ let guardarId=[]
 
 //pone los datos en el formulario
 function editHijo(elem){
-	console.log(elem)
+	
 	//si la tarea tiene un Projecto aparece el nombre del projecto
 	if(elem.project){
 		projectNameEdit.innerText= elem.project
@@ -38,7 +38,7 @@ function editarTarea(e){
 		}
 	})
 	//limpia el dom y vuelve todo actualizado
-
+	
 	limpiar()
 	
 	clases.almacenar.forEach(elem=>{
