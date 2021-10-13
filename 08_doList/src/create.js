@@ -9,6 +9,8 @@ let container = document.querySelector('.container');
 let projectName = document.querySelector('.projectName');
 let containerToday = document.querySelector('.containerToday');
 let containerProjects = document.querySelector('.containerProjects');
+let formularioEdit = document.querySelector('.formularioEdit');
+let tareaProjectDom = document.querySelector('.tareaProject');
 // const asd = index.
 function getFormulario(e){
 	e.preventDefault();
@@ -54,7 +56,7 @@ function mostrarDatos(elem){
 	cont.appendChild(nameTask);
 	cont.appendChild(descTask);
 
-	container.appendChild(cont);
+	
 	//pone la tarea en today
 	/////////////////////////////////////////////////////////////////
 	//MAS ADELANTE MODIFICAR A QUE SE PONGA CUANDO CLIKIAS EN CONTENEDOR TODAY
@@ -67,17 +69,21 @@ function mostrarDatos(elem){
 	
 	}
 	//si el projecto tiene nombre se lo agrega al contenedor del projecto
-	if(elem.project!=''){
+	if(elem.project!=undefined){
 		console.log('estamos creando cosas: ', elem.project)
 		let nameActual = document.querySelector(`.${elem.project}`)
 		nameActual.appendChild(cont)
+	}else{
+		container.appendChild(cont);
 	}
 	
 	
 
 	
 	btnEdit.addEventListener('click',()=>{
+		formularioEdit.style.visibility='visible';
 		edit.editHijo(elem)
+
 	})
 	btnDelete.addEventListener('click',()=>{
 		 container.removeChild(cont);
@@ -114,6 +120,8 @@ function mostrarProject(project){
 	let cont = document.createElement('DIV')	
 	let h2 = document.createElement('H2');
 	let btnAgregar = document.createElement('button')
+	// console.log('jajaj')
+	btnAgregar.innerText='+'
 	// btnAgregar.setAttribute('type','submit')
 	cont.setAttribute('name',project.nameProject)
 	cont.classList.add(project.nameProject)
@@ -124,6 +132,8 @@ function mostrarProject(project){
 	containerProjects.appendChild(cont);
 	
 	btnAgregar.addEventListener('click',()=>{
+		console.log('visible')
+		tareaProjectDom.style.visibility='visible';
 		projectName.innerText= project.nameProject
 	})
 }
@@ -135,10 +145,11 @@ function tareaProject(e){
 	if (infoName=='') {return alert('nombre invalido')}
 	let infoTask = this.descTareaProject.value;
 	let infoDate = this.dateTareaProject.value ? this.dateTareaProject.value  : undefined;
-	let projectNames = projectName.innerText;
-	console.log('pn',projectNames)
+	
+	let projectNames = projectName.innerHTML;
+	// console.log('pn',projectNames)
 	let numId = crearId();
-	console.log(numId);
+	// console.log(numId);
 	let elem = new clases.TareaProject(numId,infoName,infoTask,infoDate,projectNames);
 		
 	elem.guardar();			
