@@ -5,51 +5,72 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<form action="" name="formulario">
-		<input type="text" name="nameTask" class="nameTask">
-		<input type="text" name="descTask" class="descTask" id="">
-	
+
+<div class=contenedorTotal>
+	<div class="formsPrincpales">
+		<form action="" name="formulario" class="formulario">
+			<input type="text" name="nameTask" class="nameTask">
+			<input type="text" name="descTask" class="descTask" id="">
 		
-		<input type="date" name="dateTask" class="dateTask">
-		<button type="submit"></button>
-	</form>
-	<br>
-	<form action="" name="formularioEdit">
-		<div>
-			<h2>Project:</h2> <p class="projectNameEdit">-</p></div>
-		<input type="text" name="nameTaskEdit" class="nameTask">
-		<input type="text" name="descTaskEdit" class="descTask" id="">		
-		<input type="date" name="dateTaskEdit" class="dateTask">
-		<button type="submit"></button>
-	</form>
-
-	Para los projectos
-	<br>
-	<form action="" name="createProject">
-		<input type="text" name="nameProject" class="nameProject">
-		<button type="submit"></button>
-	</form>
-	<br>
-	<form action="" name="tareaProject">
-		<div>
-		<h2>Project:</h2> <p class="projectName"></p></div>
-		<input type="text" name="nameTareaProject" class="nameTareaProject">
-		<input type="text" name="descTareaProject" class="descTareaProject" id="">		
-		<input type="date" name="dateTareaProject" class="dateTareaProject">
-		<button type="submit"></button>
-	</form>
-	 <div class="container">
-		<h2>Tareas</h2>
+			
+			<input type="date" name="dateTask" class="dateTask">
+			<button type="submit">Tarea</button>
+		</form>
+		<br>
+		Para los projectos
+		<br>
+		<form action="" name="createProject" class="createProject">
+			<input type="text" name="nameProject" class="nameProject">
+			<button type="submit">CreateProject</button>
+		</form>
 	</div>
-	 <div class="containerToday">
-		<h2>Today</h2>
-	</div>
-	<div class="containerProjects">
-		<h2>Project</h2>
-	</div> 
 
+	<div class="formsSecundarios">
+		<form action="" name="formularioEdit" class="formularioEdit">
+			<div>
+				<h2>Projectadasdasd:</h2> <p class="projectNameEdit">-</p></div>
+				<label for="nameTaskEdit">Name</label>
+			<input type="text" name="nameTaskEdit" class="nameTask">
+			<label for="descTaskEdit">Description</label>
+			<textarea type="text" name="descTaskEdit" class="descTask" id="descTaskEdit">	</textarea>		
+			<label for="dateTaskEdit">Date
+			<input type="date" name="dateTaskEdit" id="dateTaskEdit" class="dateTask"></label>	
+			<button type="submit" class="formularioEdit-btn">Editar</button>
+		</form>
+		
+		<br>
+		<form action="" name="tareaProject" class="tareaProject">
+			<div class="inForm">
+				<div>
+				<h2>Project:</h2><p class="projectName"></p></div>
+				<label for="nameTareaProject">Name
+				<input type="text" name="nameTareaProject" id='nameTareaProject' class="nameTareaProject"></label>
+				<label for="descTareaProject">Description</label>
+				<textarea type="text" name="descTareaProject" id="descTareaProject"class="descTareaProject" cols="55" rows="5">	</textarea>	
+				<label for="dateTareaProject"></label>
+				
+				<input type="date" name="dateTareaProject" id="dateTareaProject"class="dateTareaProject date" id="dateTareaProject">
+				<button type="submit" class="tareaProject-btn" >TareaProject</button>
+			</div>
+		</form>
+		
+	</div>
+
+	
+		<div class="container">
+			<h2>Tareas</h2>
+		</div>
+		<div class="containerToday">
+			<h2>Today</h2>
+		</div>
+		<div class="containerProjectss">
+			<h2>Project</h2>
+		</div> 
+	
+</div>
 	<script src="main.js"></script>
 </body>
 </html>
