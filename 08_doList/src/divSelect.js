@@ -73,6 +73,7 @@ function colocarTareaEn(info){
 	}
 }
 //depende el valor que retorne administra losd atos
+//se usa al borrar
 function colocarTareaEnActualizado(){
 	if(container.style.visibility=='visible'){
 		return true
@@ -129,3 +130,5 @@ exports.mostrarProjectss = mostrarProjectss;
 exports.mostrarTareaActualizada=mostrarTareaActualizada;
 exports.colocarTareaEnActualizado = colocarTareaEnActualizado;
 
+exports.mostrarTareas = mostrarTareas;
+exports.mostrarToday = mostrarToday;

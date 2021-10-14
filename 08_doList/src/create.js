@@ -216,4 +216,5 @@ exports.getFormulario = getFormulario;
 exports.mostrarDatos = mostrarDatos;
 exports.createProjec = createProject;
 exports.tareaProject = tareaProject;
+exports.bsucarPorjecto = bsucarPorjecto;
 

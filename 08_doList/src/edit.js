@@ -1,6 +1,6 @@
 const clases = require('./clases.js');
 const create = require('./create.js')
-
+const divSelect = require('./divSelect.js')
 let container = document.querySelector('.container');
 let containerProjectss = document.querySelector('.containerProjectss');
 let containerToday = document.querySelector('.containerToday');
@@ -34,25 +34,29 @@ function editarTarea(e){
 		//index es el n* de elemento, object hace refernciaal array recorrido
 		if(guardarId==elem.numId){
 			object.splice(index,1,crearObjeto);
-			console.log(clases.almacenar);		
+			console.log(clases.almacenar);	
+				
 		}
 	})
-	//limpia el dom y vuelve todo actualizado
-	
-	limpiar()
-	
-	clases.almacenar.forEach(elem=>{
-		create.mostrarDatos(elem)
-	})
-
-
-
+	//devuelve al dom los datos actualizados
+	insertarDom(crearObjeto.project);
 }
-function limpiar(){
-	container.innerHTML='<h2>Tareas</h2>';
-	containerToday.innerHTML='<h2>Today</h2>';
-containerProjectss.innerHTML='<h2>Project</h2>';
+
+//la funcion esta hecha para la parte d eproyectos,
+//los otros 2 se actualizan por otro lado.
+function insertarDom(nameProject){
+	let func = divSelect.colocarTareaEnActualizado()
+	if(func == true){
+		create.mostrarTareas
+	}else if (func == false){
+		create.mostrarToday
+	}else if (func == undefined){
+		create.bsucarPorjecto(nameProject)
+	}else{
+		console.log('erro insertarDom')
+	}
 }
+
 //crea el objeto con los datos editados y se los apsa a editar Tarea
 function crearObjetoEditado(){
 	let form = document.formularioEdit
@@ -64,7 +68,7 @@ function crearObjetoEditado(){
 	let elem;
 	if(projectNameEdit.innerText!='-'){
 		project=projectNameEdit.innerHTML;
-		console.log('crearObjeto:', project)
+		
 	}
 	if(project){
 		 elem = new clases.TareaProject(numId,infoName,infoTask,infoDate,project);	
