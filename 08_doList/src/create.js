@@ -50,20 +50,37 @@ function crearId(){
 function mostrarDatos(elem){
 	// console.log(elem[0],elem[1])
 	let cont = document.createElement('DIV')
+	let miniCont = document.createElement('DIV');
+	let descDateDiv = document.createElement('DIV');
+	let btnDiv = document.createElement('DIV');
 	let nameTask = document.createElement('H2');
 	let descTask = document.createElement('P');
-	let btnDelete = document.createElement('button');
-	let btnEdit = document.createElement('button');
+	let dateTask = document.createElement('P');
+	let btnDelete = document.createElement('P');
+	let btnEdit = document.createElement('P');
 	
-	btnDelete.innerText='Delte'
-	btnEdit.innerText = 'Edit'
+	cont.classList.add('divTarea');
+	descDateDiv.classList.add('descDate');
+	btnDiv.classList.add('btnDiv');
+	miniCont.classList.add('miniCont');
+	descTask.classList.add('descTask');
+	dateTask.classList.add('dateTask');
+
+	btnDelete.innerHTML='<i class="fas fa-trash-alt"></i>';
+	btnEdit.innerHTML = '<i class="fas fa-edit"></i>';
 	nameTask.innerText=elem.title;
 	descTask.innerText = elem.desc;
-	cont.appendChild(btnDelete);
-	cont.appendChild(btnEdit)
-	cont.appendChild(nameTask);
-	cont.appendChild(descTask);
+	dateTask.innerText = ponerFecha(elem.dueDate);
 
+	btnDiv.appendChild(btnDelete);
+	btnDiv.appendChild(btnEdit);
+	
+	descDateDiv.appendChild(descTask);
+	descDateDiv.appendChild(dateTask);
+	cont.appendChild(nameTask);
+	miniCont.appendChild(descDateDiv);
+	miniCont.appendChild(btnDiv);
+	cont.appendChild(miniCont)
 	btnEdit.addEventListener('click',()=>{
 		formularioEdit.style.visibility='visible';
 		edit.editHijo(elem)
@@ -76,7 +93,13 @@ function mostrarDatos(elem){
 	})	
 	return(cont)
 }
-
+function ponerFecha(fecha){
+	if(fecha!=undefined){
+		return fecha
+	}else{
+		return ''
+	}
+}
 function eliminarElementoDom(cont){
 	let func = divSelect.colocarTareaEnActualizado()
 	if(func==true){
@@ -132,9 +155,10 @@ function mostrarProject(project){
 	
 	let cont = document.createElement('DIV')	
 	let h2 = document.createElement('H2');
-	let btnAgregar = document.createElement('button')
+	let btnAgregar = document.createElement('P')
+	cont.classList.add('divProject')
 	// console.log('jajaj')
-	btnAgregar.innerText='+'
+	btnAgregar.innerHTML='<i class="fas fa-plus"></i>'
 	// btnAgregar.setAttribute('type','submit')
 	cont.setAttribute('name',project.nameProject)
 	cont.classList.add(project.nameProject)
@@ -155,6 +179,7 @@ function mostrarProject(project){
 function createSelect(project){
 	let div = document.createElement('DIV');
 	let h2 = document.createElement('h2');
+	div.classList.add('divProjectSelect')
 	div.classList.add(project.nameProject);
 	h2.innerText=  project.nameProject;
 	div.appendChild(h2);

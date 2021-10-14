@@ -5,31 +5,36 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<script src="https://kit.fontawesome.com/e547f827f8.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class=contenedorTotal>
+	
 	<div class="formsPrincpales">
+		<h2 class="titleForms">New Task</h2>
 		<form action="" name="formulario" class="formulario">
-			<input type="text" name="nameTask" class="nameTask">
-			<input type="text" name="descTask" class="descTask" id="">
-		
+			<input type="text" name="nameTask" class="nameTask" placeholder="Name">
+			<!-- <input type="text" id=""> -->
+			<textarea name="descTask" class="descTask" id="" cols="10" rows="3" placeholder="Description"></textarea>
 			
 			<input type="date" name="dateTask" class="dateTask">
-			<button type="submit">Tarea</button>
+			<button type="submit">Create</button>
 		</form>
 		<br>
-		Para los projectos
-		<br>
+		<h2 class="titleForms">New Project</h2>
+		
 		<form action="" name="createProject" class="createProject">
-			<input type="text" name="nameProject" class="nameProject">
-			<button type="submit">CreateProject</button>
+			<input type="text" name="nameProject" class="nameProject" placeholder="Name">
+			<button type="submit">Create</button>
 		</form>
 		<div>
 			 <div class="tareasSelect"><h2>Tareas</h2></div>
 			<div class="todaySelect"><h2>Today</h2></div>
-			<div class="containerProjectssSelect"><h2>Projects</h2></div>
+			<div class="allProjects"><h2>Projects</h2>
+				<div class="containerProjectssSelect"></div>
+			</div>
 			
 		</div>
 	</div>
@@ -37,15 +42,18 @@
 
 	<div class="formsSecundarios">
 		<form action="" name="formularioEdit" class="formularioEdit">
+			<div class="inForm">
 			<div>
-				<h2>Projectadasdasd:</h2> <p class="projectNameEdit">-</p></div>
+				<h2>Project:</h2> <p class="projectNameEdit">-</p>
+			</div>
 				<label for="nameTaskEdit">Name</label>
 			<input type="text" name="nameTaskEdit" class="nameTask">
 			<label for="descTaskEdit">Description</label>
-			<textarea type="text" name="descTaskEdit" class="descTask" id="descTaskEdit">	</textarea>		
-			<label for="dateTaskEdit">Date
-			<input type="date" name="dateTaskEdit" id="dateTaskEdit" class="dateTask"></label>	
+			<textarea type="text" name="descTaskEdit" class="descTask" id="descTaskEdit" cols="53" rows="5">	</textarea>		
+			<label for="dateTaskEdit">
+			<input type="date" name="dateTaskEdit" id="dateTaskEdit" class="dateTask date"></label>	
 			<button type="submit" class="formularioEdit-btn">Editar</button>
+		</div> 
 		</form>
 		
 		<br>
@@ -56,10 +64,10 @@
 				<label for="nameTareaProject">Name
 				<input type="text" name="nameTareaProject" id='nameTareaProject' class="nameTareaProject"></label>
 				<label for="descTareaProject">Description</label>
-				<textarea type="text" name="descTareaProject" id="descTareaProject"class="descTareaProject" cols="55" rows="5">	</textarea>	
+				<textarea type="text" name="descTareaProject" id="descTareaProject"class="descTareaProject" cols="50" rows="5">	</textarea>	
 				<label for="dateTareaProject"></label>
 				
-				<input type="date" name="dateTareaProject" id="dateTareaProject"class="dateTareaProject date" id="dateTareaProject">
+				<input type="date" name="dateTareaProject" id="dateTareaProject"class="dateTareaProject date " >
 				<button type="submit" class="tareaProject-btn" >TareaProject</button>
 			</div>
 		</form>
@@ -67,15 +75,16 @@
 	</div>
 
 	<div class="vemos">
-		<div class="container">
-			<h2>Tareas</h2>
-		</div>
+		
 		<div class="containerToday">
 			<h2>Today</h2>
 		</div>
 		<div class="containerProjectss">
-			
 		</div> 
+		<div class="nameSelect"></div>
+		<div class="container">
+			<h2>Tareas</h2>
+		</div>
 	</div>
 </div>
 	<script src="main.js"></script>
