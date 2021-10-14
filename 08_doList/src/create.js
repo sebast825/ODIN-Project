@@ -70,12 +70,24 @@ function mostrarDatos(elem){
 
 	})
 	btnDelete.addEventListener('click',()=>{
-		 container.removeChild(cont);
 		
+		eliminarElementoDom(cont)
 		removerHijo(elem);
 	})	
 	return(cont)
+}
 
+function eliminarElementoDom(cont){
+	let func = divSelect.colocarTareaEnActualizado()
+	if(func==true){
+		container.removeChild(cont)
+	}else if(func == false){
+		containerToday.removeChild(cont)
+	}else if (func == undefined){
+		containerProjectss.removeChild(cont)
+	}else{
+		console.log('colocarTareaEnActualizado Error')
+	}
 }
 
 function removerHijo(asd){

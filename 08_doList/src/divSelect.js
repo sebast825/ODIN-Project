@@ -72,6 +72,19 @@ function colocarTareaEn(info){
 		console.log('No estas en tareas ni en today')
 	}
 }
+//depende el valor que retorne administra losd atos
+function colocarTareaEnActualizado(){
+	if(container.style.visibility=='visible'){
+		return true
+	}else if(containerToday.style.visibility=='visible'){
+		return false
+	}else if(containerProjectss.style.visibility=='visible'){		
+		return undefined
+	}else{
+		console.log('colocarTareaEnActualizado Error')
+	}
+}
+
 //verifica la ficha a ver si entra en containerToday
 function verificarFecha(elem){
 	console.log('asd')
@@ -114,7 +127,5 @@ exports.mostrarProjectss = mostrarProjectss;
 
 
 exports.mostrarTareaActualizada=mostrarTareaActualizada;
-
-exports.mostrarTareas=mostrarTareas;
-exports.mostrarToday = mostrarToday;
+exports.colocarTareaEnActualizado = colocarTareaEnActualizado;
 
