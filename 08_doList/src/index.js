@@ -23,8 +23,7 @@ tareasSelect.addEventListener('click',divSelect.mostrarTareas)
 
 const tareaProjectBtn = document.querySelector('.tareaProject-btn');
 const formularioEditBtn = document.querySelector('.formularioEdit-btn')
-const container = document.querySelector('.container');
-const containerToday = document.querySelector('.containerToday');
+
 
 tareaProjectBtn.addEventListener('click',()=>{
 	tareaProject.style.visibility='hidden';

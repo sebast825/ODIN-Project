@@ -1,7 +1,7 @@
 
 const clases = require('./clases.js');
 const edit = require('./edit.js');
-const fecha = require('./fecha.js');
+
 const divSelect = require('./divSelect.js');
 
 // const index = require('./index.js')
@@ -93,15 +93,29 @@ function removerHijo(asd){
 //DESDE ACA ES PARA PROJECTO + HIJO
 function createProject(e){
 	e.preventDefault()
-	console.log('asd')	
+		
 	let nameProject = this.nameProject.value
+	let nameValido = verificarNombreProject(nameProject)
+	if(!nameValido)return
+	
 	let project = new clases.Project(nameProject)	
 	project.guardar()	
-	console.log('vamos por aca')
+	
 	mostrarProject(project)
 	createSelect(project)
 }
 
+//verifica si el nombre del projecto existe
+function verificarNombreProject(nameProject){
+	let valido=true;
+	clases.almacenarProject.forEach(elem=>{
+		if(elem.nameProject==nameProject){
+			alert('ya esxiste un proyecto con ese nombre')			
+			valido=false			
+		}
+	})
+	return valido
+}
 function mostrarProject(project){
 	
 	let cont = document.createElement('DIV')	
@@ -133,7 +147,7 @@ function createSelect(project){
 	h2.innerText=  project.nameProject;
 	div.appendChild(h2);
 	containerProjectssSelect.appendChild(div);
-
+	showTareaProject(project)
 	div.addEventListener('click',()=>{		
 		divSelect.mostrarProjectss();
 		showTareaProject(project)
@@ -143,6 +157,8 @@ function createSelect(project){
 
 //muestra en el dom el projecto y sus tareas
 function showTareaProject(project){
+	console.log('showp 1')
+
 	containerProjectss.innerHTML=`<h2>Project </h2>`;
 	mostrarProject(project)
    clases.almacenar.forEach(elem=>{
@@ -154,7 +170,7 @@ function showTareaProject(project){
 }
 function tareaProject(e){
 	e.preventDefault();
-	console.log('asd')
+	
 	let infoName = this.nameTareaProject.value;
 	if (infoName=='') {return alert('nombre invalido')}
 	let infoTask = this.descTareaProject.value;
