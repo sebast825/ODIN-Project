@@ -17,7 +17,8 @@ let containerProjectssSelect = document.querySelector('.containerProjectssSelect
 // const asd = index.
 function getFormulario(e){
 	e.preventDefault();
-	
+	//si es taabajo no la corre y hay quilombo 
+	divSelect.mostrarTareas()
 	let infoName = this.nameTask.value;
 	if (infoName=='') {return alert('nombre invalido')}
 	let infoTask = this.descTask.value;
@@ -28,7 +29,10 @@ function getFormulario(e){
 		
 	elem.asd();			
 	let info = elem.leer();
+	
 	divSelect.colocarTareaEn(info);
+	
+	
 }
 
 

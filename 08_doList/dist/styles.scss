@@ -13,21 +13,28 @@
 		
 		display: flex;
 		flex-direction: column;
-		padding: 1rem 0;
+		padding-top: 0.5rem;
 		background-color: #f32;
 		align-items: center;
-		
+		.btn-principales{
+			// text-transform: none;
+			background-color: #fee;
+			color: #000;
+			// border: 2px solid black;
+		}
 		.formulario,
 		.createProject{
 			
 			display: flex;
 			flex-direction: column;
 			width: 90%;
+			margin: 0.5rem 0;
 		}
 		a{
 			text-decoration: none;
 			text-transform: none;
 			color: black;
+		
 		}
 
 		.tareasSelect, .todaySelect, .allProjects{
@@ -37,16 +44,24 @@
 			padding: 1rem 1rem;	
 			padding-bottom:0 ;		
 			margin-left: -0.5rem;
-			padding-bottom: 0.3rem;
-
-			
-			
-			
+			padding-bottom: 0.3rem;			
 			
 		} 
+		.allProjects{
+			border: none;
+		}
+		.class{
+			background-color: #4be;
+			// background-color: black;
+			color: black;
+			border:  solid white; 
+			border-radius: 10px;
+			
+		}
+		
 		.containerProjectssSelect{
 			
-			
+			border-bottom:  solid white;
 			max-height: 7rem;
 			overflow: hidden;
 			overflow-y: scroll;
@@ -161,17 +176,12 @@
 			height: 100%;
 			position: relative;
 			//es el pedazo que esta arriba
-			.nameSelect{
-				width: 100%;
-				height: 10%;
-				background-color: #4be;
-				position: relative;
-			}
+			
 			.container, .containerToday, .containerProjectss {
 				
 				visibility: visible;
 				width: 100% ;
-				height:  90% ;
+				height:  100% ;
 				position: absolute;
 				background-color: #4be;
 				
