@@ -12,7 +12,7 @@ let Project = class Project{
 	guardar(){
 		let c = {nameProject:this.nameProject}
 		almacenarProject.push(c)
-		console.log(almacenarProject)	
+		// console.log(almacenarProject)	
 	}
 }
 let Tarea = class Tarea{
@@ -49,7 +49,7 @@ let TareaProject = class TareaProject extends Tarea{
 		
 		almacenar.push(c);
 		// almacenar.push(b)
-		console.log(almacenar)	
+		// console.log(almacenar)	
 	}
 	leer(){
 		let c = super.leer()

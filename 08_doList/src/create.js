@@ -157,32 +157,72 @@ function verificarNombreProject(nameProject){
 }
 function mostrarProject(project){
 	
-	let cont = document.createElement('DIV')	
+	let cont = document.createElement('DIV');
 	let h2 = document.createElement('H2');
-	let btnAgregar = document.createElement('P')
-	cont.classList.add('divProject')
+	let btnAgregar = document.createElement('P');
+	let btnEliminar = document.createElement('button');
+	cont.classList.add('divProject');
 	// console.log('jajaj')
-	btnAgregar.innerHTML='<i class="fas fa-plus"></i>'
+	btnAgregar.innerHTML='<i class="fas fa-plus"></i>';
+	btnEliminar.innerHTML = 'eliminarProject';
 	// btnAgregar.setAttribute('type','submit')
-	cont.setAttribute('name',project.nameProject)
-	cont.classList.add(project.nameProject)
+	cont.setAttribute('name',project.nameProject);
+	cont.classList.add(project.nameProject);
 	h2.innerText = project.nameProject;
 	
-	cont.appendChild(h2)
-	cont.appendChild(btnAgregar)
+	cont.appendChild(h2);
+	cont.appendChild(btnAgregar);
+	cont.appendChild(btnEliminar);
 	containerProjectss.appendChild(cont);
 	
 	btnAgregar.addEventListener('click',()=>{
-		console.log('visible')
+		console.log('visible');
 		tareaProjectDom.style.visibility='visible';
-		projectName.innerText= project.nameProject
+		projectName.innerText= project.nameProject;
 	})
+	btnEliminar.addEventListener('click',()=>{
+		console.log('btneliminar',project)
+			eliminarProjecto(project)
+	})
+}
+function eliminarProjecto(project){
+	let confirmar = confirm('Seguro que desea eliminar el proyecto?');
+	if(confirmar){
+		//borra tarea
+	clases.almacenar.forEach((elem,index,object)=>{
+		console.log('eliminar tarea')	
+		if(elem.project==project.nameProject){
+			console.log(elem);
+			object.splice(index,1);							
+		}
+	})
+	//borra proyecto
+	clases.almacenarProject.forEach((elem,index,object)=>{
+		 console.log('afuera',elem)
+		if(elem.nameProject==project.nameProject){
+			object.splice(index,1);		
+			console.log('desde dentro',clases.almacenarProject)
+					
+	}
+	})
+	//actualiza el select
+		containerProjectssSelect.innerText='';
+		clases.almacenarProject.forEach(elem=>{
+			console.log('elem',elem)
+			createSelect(elem)
+		})	
+	
+
+	
+	divSelect.mostrarProjectss()
+}	
 }
 
 //inserta el nuvo projecto en la lista de projectos
 function createSelect(project){
 	let div = document.createElement('DIV');
 	let h2 = document.createElement('h2');
+	
 	div.classList.add('divProjectSelect')
 	div.classList.add(project.nameProject);
 	h2.innerText=  project.nameProject;
@@ -198,9 +238,9 @@ function createSelect(project){
 
 //muestra en el dom el projecto y sus tareas
 function showTareaProject(project){
-	console.log('showp 1')
+	
 
-	containerProjectss.innerHTML=`<h2>Project </h2>`;
+	containerProjectss.innerHTML=``;
 	mostrarProject(project)
    clases.almacenar.forEach(elem=>{
 	   if(elem.project==project.nameProject){
