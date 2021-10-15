@@ -184,7 +184,14 @@
 				height:  100% ;
 				position: absolute;
 				background-color: #4be;
-				
+				p{
+					:hover{
+						color: #ccc;
+					}
+				}
+				.completeTask{
+					text-decoration: line-through;
+				}
 				.divTarea{
 					margin: 0.5rem 5rem;
 					padding-bottom: 0.5rem;

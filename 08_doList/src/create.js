@@ -62,6 +62,7 @@ function mostrarDatos(elem){
 	let dateTask = document.createElement('P');
 	let btnDelete = document.createElement('P');
 	let btnEdit = document.createElement('P');
+	let btnCheck = document.createElement('input');
 	
 	cont.classList.add('divTarea');
 	descDateDiv.classList.add('descDate');
@@ -69,22 +70,38 @@ function mostrarDatos(elem){
 	miniCont.classList.add('miniCont');
 	descTask.classList.add('descTask');
 	dateTask.classList.add('dateTask');
+	btnCheck.setAttribute('type','checkbox');
 
 	btnDelete.innerHTML='<i class="fas fa-trash-alt"></i>';
 	btnEdit.innerHTML = '<i class="fas fa-edit"></i>';
-	nameTask.innerText=elem.title;
+	nameTask.innerText=elem.title+"   ";
 	descTask.innerText = elem.desc;
 	dateTask.innerText = ponerFecha(elem.dueDate);
 
 	btnDiv.appendChild(btnDelete);
 	btnDiv.appendChild(btnEdit);
-	
+
+	nameTask.appendChild(btnCheck);
+
 	descDateDiv.appendChild(descTask);
 	descDateDiv.appendChild(dateTask);
 	cont.appendChild(nameTask);
 	miniCont.appendChild(descDateDiv);
 	miniCont.appendChild(btnDiv);
 	cont.appendChild(miniCont)
+
+	if(elem.complete)btnCheck.checked=true
+	btnCheck.addEventListener('click',()=>{
+		if(elem.complete){
+			console.log('cjeck')
+			elem.complete=false;
+			cont.classList.remove('completeTask');
+		}else{
+			
+			elem.complete=true;
+			cont.classList.add('completeTask')
+		}
+	})
 	btnEdit.addEventListener('click',()=>{
 		formularioEdit.style.visibility='visible';
 		edit.editHijo(elem)
@@ -160,11 +177,11 @@ function mostrarProject(project){
 	let cont = document.createElement('DIV');
 	let h2 = document.createElement('H2');
 	let btnAgregar = document.createElement('P');
-	let btnEliminar = document.createElement('button');
+	let btnEliminar = document.createElement('P');
 	cont.classList.add('divProject');
 	// console.log('jajaj')
 	btnAgregar.innerHTML='<i class="fas fa-plus"></i>';
-	btnEliminar.innerHTML = 'eliminarProject';
+	btnEliminar.innerHTML = '<i class="fas fa-trash-alt"></i>';
 	// btnAgregar.setAttribute('type','submit')
 	cont.setAttribute('name',project.nameProject);
 	cont.classList.add(project.nameProject);

@@ -214,6 +214,14 @@
   background-color: #4be;
 }
 
+.contenedorTotal .vemos .container p :hover, .contenedorTotal .vemos .containerToday p :hover, .contenedorTotal .vemos .containerProjectss p :hover {
+  color: #ccc;
+}
+
+.contenedorTotal .vemos .container .completeTask, .contenedorTotal .vemos .containerToday .completeTask, .contenedorTotal .vemos .containerProjectss .completeTask {
+  text-decoration: line-through;
+}
+
 .contenedorTotal .vemos .container .divTarea, .contenedorTotal .vemos .containerToday .divTarea, .contenedorTotal .vemos .containerProjectss .divTarea {
   margin: 0.5rem 5rem;
   padding-bottom: 0.5rem;
