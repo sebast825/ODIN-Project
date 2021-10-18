@@ -8,7 +8,13 @@
 	 position: relative;
 	height: 100vh;
 	
+	.forms-barra{
+		
+		width: 0;
+	}
+
 	.formsPrincpales{
+		
 		width: 25vw;
 		
 		display: flex;
@@ -16,6 +22,17 @@
 		padding-top: 0.5rem;
 		background-color: #f32;
 		align-items: center;
+		border-right: white 2px;
+		border-style:groove;
+		
+		.formTitle{
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			align-content: space-around;
+			// gap: 1rem;
+		}
 		.btn-principales{
 			// text-transform: none;
 			background-color: #fee;
@@ -170,8 +187,28 @@
 			
 		}
 		}
-		.vemos{
-			background-color: green;
+		.vemosTexto{
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			
+			.texto{
+				width: 100%;
+				 height: 20%;
+				position: relative;
+				background-color: purple;
+				display: flex;
+				// justify-content:baseline;
+				align-items: center;
+				// z-index: 150;
+				h2{
+					margin-left: 10%;
+					color: white;
+				}
+			}
+			.vemos{
+			background-color: black;
 			width: 100%;
 			height: 100%;
 			position: relative;
@@ -191,6 +228,7 @@
 					border-bottom: 1px solid white;
 					h2{
 						margin-left: -1rem;
+						
 					}
 					.miniCont{
 						display: flex;
@@ -243,7 +281,65 @@
 			
 		}
 		
+	}
 		
 		
+}
+
+
+@media screen and (max-width: 750px) {
+	.contenedorTotal{
+		// position: relative;
+		.forms-barra{
+			margin-top: 0.5rem;
+		right: 15%;
+		position: absolute;
+		width: 100%;
+		 display: flex;
+		 justify-content:flex-end ;
+		 align-items: center;
 		
+		z-index: 500;
+		:hover{
+			color: black;
+		}
+		
+		}
+		.formsPrincpales{
+			position: relative;
+			
+			width: 100%;
+			 left: -300px;
+			margin-right:  25%;
+			padding: 10% 10% ;
+			
+			z-index: 250;
+			
+			background-color: red;
+			transition:  all 0.6s ease-in;
+		}
+		.formsPrincpales-oculto{
+			
+			 left: 0px;
+			
+			transition:  all 0.6s linear;
+		
+			
+		}
+
+		.vemosTexto{
+			 display: flex;
+			position: absolute	;
+	
+			transition:  all 0.5s linear;
+			
+			
+		}
+		
+		.colorActive{
+			opacity: 0.4;
+			transition: all 0.5s linear;
+		}
+		
+	}
 }

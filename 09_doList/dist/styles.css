@@ -11,6 +11,10 @@
   height: 100vh;
 }
 
+.contenedorTotal .forms-barra {
+  width: 0;
+}
+
 .contenedorTotal .formsPrincpales {
   width: 25vw;
   display: -webkit-box;
@@ -25,6 +29,24 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-right: white 2px;
+  border-style: groove;
+}
+
+.contenedorTotal .formsPrincpales .formTitle {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
 }
 
 .contenedorTotal .formsPrincpales .btn-principales {
@@ -199,14 +221,44 @@
       align-self: flex-end;
 }
 
-.contenedorTotal .vemos {
-  background-color: green;
+.contenedorTotal .vemosTexto {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contenedorTotal .vemosTexto .texto {
+  width: 100%;
+  height: 20%;
+  position: relative;
+  background-color: purple;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contenedorTotal .vemosTexto .texto h2 {
+  margin-left: 10%;
+  color: white;
+}
+
+.contenedorTotal .vemosTexto .vemos {
+  background-color: black;
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-.contenedorTotal .vemos .container, .contenedorTotal .vemos .containerToday, .contenedorTotal .vemos .containerProjectss {
+.contenedorTotal .vemosTexto .vemos .container, .contenedorTotal .vemosTexto .vemos .containerToday, .contenedorTotal .vemosTexto .vemos .containerProjectss {
   visibility: visible;
   width: 100%;
   height: 100%;
@@ -214,17 +266,17 @@
   background-color: #4be;
 }
 
-.contenedorTotal .vemos .container .divTarea, .contenedorTotal .vemos .containerToday .divTarea, .contenedorTotal .vemos .containerProjectss .divTarea {
+.contenedorTotal .vemosTexto .vemos .container .divTarea, .contenedorTotal .vemosTexto .vemos .containerToday .divTarea, .contenedorTotal .vemosTexto .vemos .containerProjectss .divTarea {
   margin: 0.5rem 5rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid white;
 }
 
-.contenedorTotal .vemos .container .divTarea h2, .contenedorTotal .vemos .containerToday .divTarea h2, .contenedorTotal .vemos .containerProjectss .divTarea h2 {
+.contenedorTotal .vemosTexto .vemos .container .divTarea h2, .contenedorTotal .vemosTexto .vemos .containerToday .divTarea h2, .contenedorTotal .vemosTexto .vemos .containerProjectss .divTarea h2 {
   margin-left: -1rem;
 }
 
-.contenedorTotal .vemos .container .divTarea .miniCont, .contenedorTotal .vemos .containerToday .divTarea .miniCont, .contenedorTotal .vemos .containerProjectss .divTarea .miniCont {
+.contenedorTotal .vemosTexto .vemos .container .divTarea .miniCont, .contenedorTotal .vemosTexto .vemos .containerToday .divTarea .miniCont, .contenedorTotal .vemosTexto .vemos .containerProjectss .divTarea .miniCont {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -233,7 +285,7 @@
           justify-content: space-between;
 }
 
-.contenedorTotal .vemos .container .divTarea .descDate, .contenedorTotal .vemos .containerToday .divTarea .descDate, .contenedorTotal .vemos .containerProjectss .divTarea .descDate {
+.contenedorTotal .vemosTexto .vemos .container .divTarea .descDate, .contenedorTotal .vemosTexto .vemos .containerToday .divTarea .descDate, .contenedorTotal .vemosTexto .vemos .containerProjectss .divTarea .descDate {
   width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -244,16 +296,16 @@
       align-content: space-around;
 }
 
-.contenedorTotal .vemos .container .divTarea .descDate .descTask, .contenedorTotal .vemos .containerToday .divTarea .descDate .descTask, .contenedorTotal .vemos .containerProjectss .divTarea .descDate .descTask {
+.contenedorTotal .vemosTexto .vemos .container .divTarea .descDate .descTask, .contenedorTotal .vemosTexto .vemos .containerToday .divTarea .descDate .descTask, .contenedorTotal .vemosTexto .vemos .containerProjectss .divTarea .descDate .descTask {
   min-width: 80%;
   max-width: 80%;
 }
 
-.contenedorTotal .vemos .container .divTarea .descDate .dateTask, .contenedorTotal .vemos .containerToday .divTarea .descDate .dateTask, .contenedorTotal .vemos .containerProjectss .divTarea .descDate .dateTask {
+.contenedorTotal .vemosTexto .vemos .container .divTarea .descDate .dateTask, .contenedorTotal .vemosTexto .vemos .containerToday .divTarea .descDate .dateTask, .contenedorTotal .vemosTexto .vemos .containerProjectss .divTarea .descDate .dateTask {
   min-width: 20%;
 }
 
-.contenedorTotal .vemos .container .divTarea .btnDiv, .contenedorTotal .vemos .containerToday .divTarea .btnDiv, .contenedorTotal .vemos .containerProjectss .divTarea .btnDiv {
+.contenedorTotal .vemosTexto .vemos .container .divTarea .btnDiv, .contenedorTotal .vemosTexto .vemos .containerToday .divTarea .btnDiv, .contenedorTotal .vemosTexto .vemos .containerProjectss .divTarea .btnDiv {
   min-width: 10%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -262,11 +314,11 @@
       justify-content: space-around;
 }
 
-.contenedorTotal .vemos .container .divTarea .btnDiv p :hover, .contenedorTotal .vemos .containerToday .divTarea .btnDiv p :hover, .contenedorTotal .vemos .containerProjectss .divTarea .btnDiv p :hover {
+.contenedorTotal .vemosTexto .vemos .container .divTarea .btnDiv p :hover, .contenedorTotal .vemosTexto .vemos .containerToday .divTarea .btnDiv p :hover, .contenedorTotal .vemosTexto .vemos .containerProjectss .divTarea .btnDiv p :hover {
   color: #ccc;
 }
 
-.contenedorTotal .vemos .divProject {
+.contenedorTotal .vemosTexto .vemos .divProject {
   background-color: RED;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -275,12 +327,63 @@
   padding: 1rem 3rem;
 }
 
-.contenedorTotal .vemos .divProject h2 {
+.contenedorTotal .vemosTexto .vemos .divProject h2 {
   font-size: 3rem;
 }
 
-.contenedorTotal .vemos .divProject p {
+.contenedorTotal .vemosTexto .vemos .divProject p {
   font-size: 1.7rem;
   color: white;
+}
+
+@media screen and (max-width: 750px) {
+  .contenedorTotal .forms-barra {
+    margin-top: 0.5rem;
+    right: 15%;
+    position: absolute;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    z-index: 500;
+  }
+  .contenedorTotal .forms-barra :hover {
+    color: black;
+  }
+  .contenedorTotal .formsPrincpales {
+    position: relative;
+    width: 100%;
+    left: -300px;
+    margin-right: 25%;
+    padding: 10% 10%;
+    z-index: 250;
+    background-color: red;
+    -webkit-transition: all 0.6s ease-in;
+    transition: all 0.6s ease-in;
+  }
+  .contenedorTotal .formsPrincpales-oculto {
+    left: 0px;
+    -webkit-transition: all 0.6s linear;
+    transition: all 0.6s linear;
+  }
+  .contenedorTotal .vemosTexto {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+  }
+  .contenedorTotal .colorActive {
+    opacity: 0.4;
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
