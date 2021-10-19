@@ -2,6 +2,7 @@ const clases = require('./clases.js');
 const divSelect = require ('./divSelect')
 const delet = require ('./delet')
 const edit = require('./edit')
+const localStorage = require('./localStorage')
 const container = document.querySelector('.container');
 const containerProjectssSelect = document.querySelector('.containerProjectssSelect');
 const containerProjectss = document.querySelector('.containerProjectss');
@@ -28,6 +29,7 @@ function getFormulario(e){
 	 let info = elem.getLeer;
 	// console.log(info)
 	container.appendChild(mostrarDatos(elem))
+	localStorage.guardar_LocalStorage()
 	// divSelect.colocarTareaEn(info);
 	
 	
@@ -48,6 +50,7 @@ function createProject(e){
 	console.log(project.getLeer);
 	// console.log(project.createSelect())
 	 containerProjectssSelect.appendChild(createSelect(project.getLeer))
+	 localStorage.guardar_LocalStorageProject()
 }
 
 //recorre el array que se le pase para crear un id
@@ -101,7 +104,7 @@ function tareaProject(e){
 	elem.guardar();			
 	console.log(elem.getLeer)
 	containerProjectss.appendChild(mostrarDatos(elem))
-	
+	localStorage.guardar_LocalStorage()
 	//es para mostrar la tarea
 	// bsucarPorjecto(projectName.innerHTML)
 	
@@ -188,12 +191,13 @@ cont.appendChild(miniCont)
 btnEdit.addEventListener('click',()=>{
 	formularioEdit.style.visibility='visible';
 	edit.editHijo(elem)
-
+	localStorage.guardar_LocalStorage()
 })
 btnDelete.addEventListener('click',()=>{
 	
 	delet.eliminarElemento(cont)
 	delet.removerHijo(elem.numId);
+	localStorage.guardar_LocalStorage()
 })	
 
 return(cont)
@@ -224,10 +228,13 @@ function mostrarProject(nameProject){
 		console.log('visible');
 		tareaProjectDom.style.visibility='visible';
 		projectName.innerText= nameProject;
+		localStorage.guardar_LocalStorage()
 	})
 	btnEliminar.addEventListener('click',()=>{
 		// console.log('btneliminar',this)
 			delet.eliminarProjecto(nameProject)
+			localStorage.guardar_LocalStorage()
+			localStorage.guardar_LocalStorageProject()
 	})
 
 	containerProjectss.appendChild(cont);
