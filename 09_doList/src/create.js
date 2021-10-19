@@ -76,16 +76,7 @@ function verificarNombreProject(nameProject){
 }
 
 
-//muestra en el dom el projecto y sus tareas
-function showTareaProject(nameProject){
-   clases.almacenar.forEach(elem=>{
-	   if(elem.project==nameProject){
-		   console.log(elem)
-		//    let tarea = mostrarDatos(elem);
-		//    containerProjectss.appendChild(tarea)
-	   }
-})
-}
+
 
 function tareaProject(e){
 	e.preventDefault();
@@ -109,12 +100,20 @@ function tareaProject(e){
 		elem.setId=numId;
 	elem.guardar();			
 	console.log(elem.getLeer)
-	containerProjectss.appendChild(elem.mostrarDatos)
+	containerProjectss.appendChild(mostrarDatos(elem))
 	
 	//es para mostrar la tarea
 	// bsucarPorjecto(projectName.innerHTML)
 	
 }
+
+
+
+
+
+
+
+
 function createSelect(project){
 	let div = document.createElement('DIV');
 	let h2 = document.createElement('h2');
@@ -126,9 +125,14 @@ function createSelect(project){
 	div.addEventListener('click',()=>{		
 		divSelect.mostrarProjectss()
 		// let elem = this.mostrarProject
-		mostrarProject(project.nameProject);
+		
 		// showTareaProject(elem.nameProject)
-		showTareaProject(project)
+	
+			mostrarProject(project.nameProject);
+			showTareaProject(project)
+		
+		
+		console.log(project)
 		})
 		
 	return (div)
@@ -138,9 +142,9 @@ function createSelect(project){
 function showTareaProject(project){
 	
 
-	containerProjectss.innerHTML=``;
-	mostrarProject(project)
+	
    clases.almacenar.forEach(elem=>{
+	   console.log(elem)
 	   if(elem.project==project.nameProject){
 		   let tarea = mostrarDatos(elem);
 		   containerProjectss.appendChild(tarea)
@@ -214,7 +218,7 @@ function mostrarProject(nameProject){
 	cont.appendChild(btnAgregar);
 	cont.appendChild(btnEliminar);
 
-	containerProjectss.appendChild(cont);
+	
 	
 	btnAgregar.addEventListener('click',()=>{
 		console.log('visible');
@@ -225,6 +229,8 @@ function mostrarProject(nameProject){
 		// console.log('btneliminar',this)
 			delet.eliminarProjecto(nameProject)
 	})
+
+	containerProjectss.appendChild(cont);
 	
 }
 

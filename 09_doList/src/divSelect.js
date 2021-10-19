@@ -30,10 +30,12 @@ function mostrarToday(){
 	containerToday.style.visibility = 'visible';
 
 }
-function mostrarProjectss(){
+function mostrarProjectss(e){
+	// e.preventDefault()
+	activeSelect('project')
 	containerProjectss.innerText='';
 	mostrar();
-	activeSelect('project')
+
 	containerProjectss.style.visibility = 'visible';
 
 }
@@ -88,10 +90,21 @@ function mostrarTotalToday(){
 		if(verFecha){
 			let obj = create.mostrarDatos(elem)
 			containerToday.prepend(obj)
-		}
-
-		
+		}		
 	})
 }
-
+//verifica la ficha a ver si entra en containerToday
+function verificarFecha(elem){
+	console.log('asd')
+	console.log(elem)
+	console.log('comienzo')
+	if(elem.dueDate!=undefined){
+		console.log(elem)
+		let atr = fecha.htmlToday(elem.dueDate)
+		if(atr){
+			console.log('entro')
+			return true	
+		}
+}
+}
 module.exports={mostrarTareas,mostrarToday,mostrarProjectss,colocarTareaEnActualizado}
