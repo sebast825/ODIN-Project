@@ -35,4 +35,4 @@ clases.almacenar.forEach(elem=>{
 
 }
 exports.actualziarDatos = actualziarDatos;
-exports.eliminarElementoDom = eliminarElementoDom;
+

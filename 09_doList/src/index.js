@@ -13,6 +13,8 @@ const containerProjectssSelect = document.querySelector('.containerProjectssSele
 
 document.formulario.addEventListener('submit',create.getFormulario);
 document.formularioEdit.addEventListener('submit',edit.actualziarDatos);
+document.createProject.addEventListener('submit',create.createProject);
+
 formsBarra.addEventListener('click',menu.showMenu)
 
 

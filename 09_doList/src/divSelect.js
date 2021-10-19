@@ -31,7 +31,7 @@ function mostrarToday(){
 
 }
 function mostrarProjectss(){
-	
+	containerProjectss.innerText='';
 	mostrar();
 	activeSelect('project')
 	containerProjectss.style.visibility = 'visible';

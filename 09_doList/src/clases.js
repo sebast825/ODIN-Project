@@ -1,8 +1,85 @@
-const edit = require('./edit.js')
-
+const edit = require('./edit.js');
+const create = require('./create');
+const divSelect = require('./divSelect');
 const projectNameEdit = document.querySelector('.projectNameEdit');
 const container = document.querySelector('.container');
+const containerProjectss = document.querySelector('.containerProjectss');
+const containerProjectssSelect = document.querySelector('.containerProjectssSelect');
+const tareaProjectDom = document.querySelector('.tareaProjectDom');
+const projectName = document.querySelector('.projectName');
 let almacenar = [];
+
+let almacenarProject=[];
+
+let Project = class Project{
+	constructor(nameProject,id){
+		this.numId = id
+		this.nameProject = nameProject
+	
+	}
+	set setNumId(id){
+		this.numId = id;
+	}
+	set setNameProject(np){
+		this.nameProject = np;
+	}
+	get getLeer(){
+		return {numId : this.numId, nameProject : this.nameProject}
+	}
+	guardar(){
+		
+		almacenarProject.push({nameProject:this.nameProject})
+		
+	}
+	get  setCreateSelect(){
+		let div = document.createElement('DIV');
+		let h2 = document.createElement('h2');
+		
+		div.classList.add('divProjectSelect')
+		div.classList.add(this.nameProject);
+		h2.innerText=  this.nameProject;
+		div.appendChild(h2);
+		div.addEventListener('click',()=>{		
+			divSelect.mostrarProjectss()
+			// let elem = this.mostrarProject
+			containerProjectss.appendChild(this.mostrarProject);
+			create.showTareaProject(this.nameProject)
+			})
+		return (div)
+	}
+	get  mostrarProject(){
+	
+		let cont = document.createElement('DIV');
+		let h2 = document.createElement('H2');
+		let btnAgregar = document.createElement('P');
+		let btnEliminar = document.createElement('button');
+		cont.classList.add('divProject');
+		// console.log('jajaj')
+		btnAgregar.innerHTML='<i class="fas fa-plus"></i>';
+		btnEliminar.innerHTML = 'eliminarProject';
+		// btnAgregar.setAttribute('type','submit')
+		cont.setAttribute('name',this.nameProject);
+		cont.classList.add(this.nameProject);
+		h2.innerText = this.nameProject;
+		
+		cont.appendChild(h2);
+		cont.appendChild(btnAgregar);
+		cont.appendChild(btnEliminar);
+		
+		
+		btnAgregar.addEventListener('click',()=>{
+			console.log('visible');
+			tareaProject.style.visibility='visible';
+			projectName.innerText= project.nameProject;
+		})
+		btnEliminar.addEventListener('click',()=>{
+			console.log('btneliminar',project)
+				eliminarProjecto(project)
+		})
+		return (cont)
+	}
+
+}
 
 let Tarea = class Tarea{
 	constructor(numId,title, desc, dueDate,complete=false){
@@ -31,7 +108,7 @@ let Tarea = class Tarea{
 	guardarInfo(){
 		
 		 almacenar.push(this.getLeer);
-		console.log(almacenar)
+		
 	}	
 	get getLeer(){
 		return  {numId:this.numId,  title:this.title,desc:this.desc, dueDate:this.dueDate, complete:this.complete} 
@@ -122,5 +199,8 @@ let Tarea = class Tarea{
 
 
 
+
 exports.almacenar = almacenar;
 exports.Tarea = Tarea;
+exports.almacenarProject = almacenarProject;
+exports.Project = Project;
