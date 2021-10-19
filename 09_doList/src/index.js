@@ -9,7 +9,8 @@ const formularioEditBtn = document.querySelector('.formularioEdit-btn');
 const tareasSelect = document.querySelector('.tareasSelect');
 const todaySelect = document.querySelector('.todaySelect');
 const containerProjectssSelect = document.querySelector('.containerProjectssSelect')
-			
+		
+
 
 document.formulario.addEventListener('submit',create.getFormulario);
 document.formularioEdit.addEventListener('submit',edit.actualziarDatos);

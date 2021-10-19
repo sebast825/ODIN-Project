@@ -18,14 +18,14 @@ function mostrarTareas(){
 	// e.preventDefault()
 	
 	mostrar();
-	// mostrarTotalTareas();
+	mostrarTotalTareas();
 	activeSelect('tareas')
 	container.style.visibility='visible';
 }
 function mostrarToday(){
 	// e.preventDefault()
 	mostrar();
-	// mostrarTotalToday()
+	mostrarTotalToday()
 	activeSelect('today')
 	containerToday.style.visibility = 'visible';
 
@@ -67,4 +67,31 @@ function colocarTareaEnActualizado(){
 		console.log('colocarTareaEnActualizado Error')
 	}
 }
+
+//muestra todas las tareas en container
+function mostrarTotalTareas(){
+	//si no si clickias muchas veces, repite las tareas	
+	container.innerText = '';	
+	clases.almacenar.forEach(elem=>{
+		// console.log('mosstartareastotales')
+		let tarea = create.mostrarDatos(elem);
+		container.appendChild(tarea)
+	})
+}
+
+//al clickiar en Today muestra todas las tareas del dia
+function mostrarTotalToday(){
+	containerToday.innerText='';
+	console.log('asd')
+	clases.almacenar.forEach(elem=>{
+		let verFecha = verificarFecha(elem);
+		if(verFecha){
+			let obj = create.mostrarDatos(elem)
+			containerToday.prepend(obj)
+		}
+
+		
+	})
+}
+
 module.exports={mostrarTareas,mostrarToday,mostrarProjectss,colocarTareaEnActualizado}

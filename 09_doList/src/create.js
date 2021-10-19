@@ -1,5 +1,7 @@
 const clases = require('./clases.js');
 const divSelect = require ('./divSelect')
+const delet = require ('./delet')
+const edit = require('./edit')
 const container = document.querySelector('.container');
 const containerProjectssSelect = document.querySelector('.containerProjectssSelect');
 const containerProjectss = document.querySelector('.containerProjectss');
@@ -25,7 +27,7 @@ function getFormulario(e){
 	// elem.guardarInfo();			
 	 let info = elem.getLeer;
 	// console.log(info)
-	container.appendChild(elem.mostrarDatos)
+	container.appendChild(mostrarDatos(elem))
 	// divSelect.colocarTareaEn(info);
 	
 	
@@ -126,9 +128,71 @@ function createSelect(project){
 		// let elem = this.mostrarProject
 		mostrarProject(project.nameProject);
 		// showTareaProject(elem.nameProject)
+		showTareaProject(project)
 		})
 		
 	return (div)
+}
+
+//muestra en el dom el projecto y sus tareas
+function showTareaProject(project){
+	
+
+	containerProjectss.innerHTML=``;
+	mostrarProject(project)
+   clases.almacenar.forEach(elem=>{
+	   if(elem.project==project.nameProject){
+		   let tarea = mostrarDatos(elem);
+		   containerProjectss.appendChild(tarea)
+	   }
+})
+}
+function mostrarDatos(elem){
+	// console.log(elem[0],elem[1])
+let cont = document.createElement('DIV')
+let miniCont = document.createElement('DIV');
+let descDateDiv = document.createElement('DIV');
+let btnDiv = document.createElement('DIV');
+let nameTask = document.createElement('H2');
+let descTask = document.createElement('P');
+let dateTask = document.createElement('P');
+let btnDelete = document.createElement('P');
+let btnEdit = document.createElement('P');
+
+cont.classList.add('divTarea');
+descDateDiv.classList.add('descDate');
+btnDiv.classList.add('btnDiv');
+miniCont.classList.add('miniCont');
+descTask.classList.add('descTask');
+dateTask.classList.add('dateTask');
+
+btnDelete.innerHTML='<i class="fas fa-trash-alt"></i>';
+btnEdit.innerHTML = '<i class="fas fa-edit"></i>';
+nameTask.innerText=elem.title;
+descTask.innerText = elem.desc;
+dateTask.innerText = elem.dueDate;
+
+btnDiv.appendChild(btnDelete);
+btnDiv.appendChild(btnEdit);
+
+descDateDiv.appendChild(descTask);
+descDateDiv.appendChild(dateTask);
+cont.appendChild(nameTask);
+miniCont.appendChild(descDateDiv);
+miniCont.appendChild(btnDiv);
+cont.appendChild(miniCont)
+btnEdit.addEventListener('click',()=>{
+	formularioEdit.style.visibility='visible';
+	edit.editHijo(elem)
+
+})
+btnDelete.addEventListener('click',()=>{
+	
+	delet.eliminarElemento(cont)
+	delet.removerHijo(elem.numId);
+})	
+
+return(cont)
 }
 
 function mostrarProject(nameProject){
@@ -159,59 +223,11 @@ function mostrarProject(nameProject){
 	})
 	btnEliminar.addEventListener('click',()=>{
 		// console.log('btneliminar',this)
-			eliminarProjecto(nameProject)
+			delet.eliminarProjecto(nameProject)
 	})
 	
 }
 
-function eliminarProjecto(nameProject){
-	let confirmar = confirm('Seguro que desea eliminar el proyecto?');
-	if(confirmar){
-		borrarTarea(nameProject);
-		borrarProject(nameProject);
-		
-		actualizarSelect();
-}
-function borrarTarea(){
-	//borra tarea
-	clases.almacenar.forEach((elem,index,object)=>{
-		console.log('eliminar tarea')	
-		if(elem.project==nameProject){
-			console.log(elem);
-			object.splice(index,1);							
-		}
-	})
-}		
-function borrarProject(nameProject){
-	//borra proyecto
-	clases.almacenarProject.forEach((elem,index,object)=>{
-		console.log('afuera',elem)
-	if(elem.nameProject==nameProject){
-		object.splice(index,1);		
-		console.log('desde dentro',clases.almacenarProject)
-				
-	}
-	})
-}
-
-function actualizarSelect(){
-	//actualiza el select
-	containerProjectssSelect.innerText='';
-	
-		clases.almacenarProject.forEach(elem=>{
-			console.log(elem)
-			containerProjectssSelect.appendChild(createSelect(elem))
-			
-			
-		})	
-
-	
-
-
-
-	divSelect.mostrarProjectss()
-	}		
-}
 	
 
 
@@ -222,4 +238,5 @@ exports.createProject = createProject;
 exports.showTareaProject = showTareaProject;
 exports.tareaProject = tareaProject;
 // exports.createSelect = createSelect;
-exports.eliminarProjecto = eliminarProjecto;
+exports.mostrarDatos = mostrarDatos;
+
