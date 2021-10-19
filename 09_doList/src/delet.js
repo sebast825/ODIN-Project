@@ -12,7 +12,8 @@ function eliminarProjecto(nameProject){
 		borrarTarea(nameProject);
 		borrarProject(nameProject);
 		
-		actualizarSelect();
+		divSelect.mostrarTareas()
+}
 }
 function borrarTarea(){
 	//borra tarea
@@ -35,18 +36,9 @@ function borrarProject(nameProject){
 	}
 	})
 }
-
-function actualizarSelect(){
-	//actualiza el select
-	containerProjectssSelect.innerText='';
 	
-		clases.almacenarProject.forEach(elem=>{
-			console.log(elem)
-			containerProjectssSelect.appendChild(createSelect(elem))				
-		})	
-	divSelect.mostrarTareas()
-	}		
-}
+
+
 
 function eliminarElemento(cont){
 	

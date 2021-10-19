@@ -204,11 +204,11 @@ function mostrarProject(nameProject){
 	let cont = document.createElement('DIV');
 	let h2 = document.createElement('H2');
 	let btnAgregar = document.createElement('P');
-	let btnEliminar = document.createElement('button');
+	let btnEliminar = document.createElement('P');
 	cont.classList.add('divProject');
 	// console.log('jajaj')
 	btnAgregar.innerHTML='<i class="fas fa-plus"></i>';
-	btnEliminar.innerHTML = 'eliminarProject';
+	btnEliminar.innerHTML ='<i class="fas fa-trash-alt"></i>';
 	// btnAgregar.setAttribute('type','submit')
 	cont.setAttribute('name',nameProject);
 	cont.classList.add(nameProject);
