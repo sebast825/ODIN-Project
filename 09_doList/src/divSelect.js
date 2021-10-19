@@ -53,4 +53,18 @@ function activeSelect(elem){
 	}
 	
 }
-module.exports={mostrarTareas,mostrarToday,mostrarProjectss}
+
+//depende el valor que retorne administra losd atos
+//se usa al borrar
+function colocarTareaEnActualizado(){
+	if(container.style.visibility=='visible'){
+		return true
+	}else if(containerToday.style.visibility=='visible'){
+		return false
+	}else if(containerProjectss.style.visibility=='visible'){		
+		return undefined
+	}else{
+		console.log('colocarTareaEnActualizado Error')
+	}
+}
+module.exports={mostrarTareas,mostrarToday,mostrarProjectss,colocarTareaEnActualizado}

@@ -1,4 +1,5 @@
 const clases = require('./clases.js');
+const divSelect = require ('./divSelect')
 const container = document.querySelector('.container');
 const containerProjectssSelect = document.querySelector('.containerProjectssSelect');
 const containerProjectss = document.querySelector('.containerProjectss');
@@ -6,6 +7,7 @@ const projectName = document.querySelector('.projectName');
 const tareaProjectDom = document.querySelector('.tareaProject');
 function getFormulario(e){
 	e.preventDefault();
+	
 	//si es taabajo no la corre y hay quilombo 
 	// divSelect.mostrarTareas()
 	let infoName = this.nameTask.value;
@@ -42,7 +44,7 @@ function createProject(e){
 	project.guardar()	
 	
 	console.log(project.getLeer);
-	containerProjectssSelect.appendChild(project.setCreateSelect)
+	containerProjectssSelect.appendChild(createSelect(project.getLeer))
 }
 
 //recorre el array que se le pase para crear un id
@@ -74,7 +76,8 @@ function verificarNombreProject(nameProject){
 function showTareaProject(nameProject){
    clases.almacenar.forEach(elem=>{
 	   if(elem.project==nameProject){
-		   let tarea = mostrarDatos(elem);
+		   console.log(elem)
+		//    let tarea = mostrarDatos(elem);
 		//    containerProjectss.appendChild(tarea)
 	   }
 })
@@ -82,6 +85,7 @@ function showTareaProject(nameProject){
 
 function tareaProject(e){
 	e.preventDefault();
+	
 	tareaProjectDom.style.visibility = 'hidden'
 	let infoName = this.nameTareaProject.value;
 	if (infoName=='') {return alert('nombre invalido')}
@@ -108,9 +112,109 @@ function tareaProject(e){
 	
 }
 
+function createSelect(elem){
+	let div = document.createElement('DIV');
+	let h2 = document.createElement('h2');
+	
+	div.classList.add('divProjectSelect')
+	div.classList.add(elem);
+	h2.innerText=  elem;
+	div.appendChild(h2);
+	div.addEventListener('click',()=>{		
+		divSelect.mostrarProjectss()
+		// let elem = this.mostrarProject
+		mostrarProject(elem);
+		// showTareaProject(elem.nameProject)
+		})
+		
+	return (div)
+}
+function mostrarProject(project){
+	
+	let cont = document.createElement('DIV');
+	let h2 = document.createElement('H2');
+	let btnAgregar = document.createElement('P');
+	let btnEliminar = document.createElement('button');
+	cont.classList.add('divProject');
+	// console.log('jajaj')
+	btnAgregar.innerHTML='<i class="fas fa-plus"></i>';
+	btnEliminar.innerHTML = 'eliminarProject';
+	// btnAgregar.setAttribute('type','submit')
+	cont.setAttribute('name',project.nameProject);
+	cont.classList.add(project.nameProject);
+	h2.innerText = project.nameProject;
+	
+	cont.appendChild(h2);
+	cont.appendChild(btnAgregar);
+	cont.appendChild(btnEliminar);
+
+	containerProjectss.appendChild(cont);
+	
+	btnAgregar.addEventListener('click',()=>{
+		console.log('visible');
+		tareaProjectDom.style.visibility='visible';
+		projectName.innerText= project.nameProject;
+	})
+	btnEliminar.addEventListener('click',()=>{
+		console.log('btneliminar',project)
+			eliminarProjecto(project)
+	})
+	
+}
+
+function eliminarProjecto(project){
+	let confirmar = confirm('Seguro que desea eliminar el proyecto?');
+	if(confirmar){
+		borrarTarea()
+		borrarProject()
+		actualizarSelect()
+}
+function borrarTarea(){
+	//borra tarea
+	clases.almacenar.forEach((elem,index,object)=>{
+		console.log('eliminar tarea')	
+		if(elem.project==project.nameProject){
+			console.log(elem);
+			object.splice(index,1);							
+		}
+	})
+}		
+function borrarProject(){
+	//borra proyecto
+	clases.almacenarProject.forEach((elem,index,object)=>{
+		console.log('afuera',elem)
+	if(elem.nameProject==project.nameProject){
+		object.splice(index,1);		
+		console.log('desde dentro',clases.almacenarProject)
+				
+	}
+	})
+}
+
+function actualizarSelect(){
+	//actualiza el select
+	containerProjectssSelect.innerText='';
+	setTimeout(function(){
+		clases.almacenarProject.forEach(elem=>{
+			console.log('elem',elem)
+			createSelect(elem.nameProject)
+		})	
+	},50)
+	
+
+
+
+	divSelect.mostrarProjectss()
+	}		
+}
+	
+
+
+
 exports.getFormulario = getFormulario;
 exports.createProject = createProject;
 
 exports.showTareaProject = showTareaProject;
 exports.tareaProject = tareaProject;
+exports.createSelect = createSelect;
 

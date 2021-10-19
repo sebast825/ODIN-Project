@@ -21,3 +21,5 @@ formsBarra.addEventListener('click',menu.showMenu)
 
 tareasSelect.addEventListener('click',divSelect.mostrarTareas)
 todaySelect.addEventListener('click',divSelect.mostrarToday)
+
+divSelect.mostrarTareas()

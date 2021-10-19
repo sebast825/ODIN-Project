@@ -32,54 +32,11 @@ let Project = class Project{
 		almacenarProject.push({nameProject:this.nameProject})
 		
 	}
-	get  setCreateSelect(){
-		let div = document.createElement('DIV');
-		let h2 = document.createElement('h2');
-		
-		div.classList.add('divProjectSelect')
-		div.classList.add(this.nameProject);
-		h2.innerText=  this.nameProject;
-		div.appendChild(h2);
-		div.addEventListener('click',()=>{		
-			divSelect.mostrarProjectss()
-			// let elem = this.mostrarProject
-			containerProjectss.appendChild(this.mostrarProject);
-			create.showTareaProject(this.nameProject)
-			})
-		return (div)
-	}
-	get  mostrarProject(){
 	
-		let cont = document.createElement('DIV');
-		let h2 = document.createElement('H2');
-		let btnAgregar = document.createElement('P');
-		let btnEliminar = document.createElement('button');
-		cont.classList.add('divProject');
-		// console.log('jajaj')
-		btnAgregar.innerHTML='<i class="fas fa-plus"></i>';
-		btnEliminar.innerHTML = 'eliminarProject';
-		// btnAgregar.setAttribute('type','submit')
-		cont.setAttribute('name',this.nameProject);
-		cont.classList.add(this.nameProject);
-		h2.innerText = this.nameProject;
+	
 		
-		cont.appendChild(h2);
-		cont.appendChild(btnAgregar);
-		cont.appendChild(btnEliminar);
-		
-		
-		btnAgregar.addEventListener('click',()=>{
-			tareaProjectDom.style.visibility='visible';
-			// console.log('visible');			
-			projectName.innerText= this.nameProject;
-		})
-		btnEliminar.addEventListener('click',()=>{
-			console.log('btneliminar',project)
-				eliminarProjecto(project)
-		})
-		return (cont)
-	}
-
+	
+	
 }
 
 let Tarea = class Tarea{
@@ -164,8 +121,18 @@ let Tarea = class Tarea{
 	}
 	eliminarElemento(cont){
 	
-		container.removeChild(cont)
-		console.log(this.numId)
+		
+			let func = divSelect.colocarTareaEnActualizado()
+			if(func==true){
+				container.removeChild(cont)
+			}else if(func == false){
+				containerToday.removeChild(cont)
+			}else if (func == undefined){
+				containerProjectss.removeChild(cont)
+			}else{
+				console.log('colocarTareaEnActualizado Error')
+			}
+		
 	
 	}
 
