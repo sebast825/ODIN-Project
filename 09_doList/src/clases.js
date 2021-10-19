@@ -5,8 +5,9 @@ const projectNameEdit = document.querySelector('.projectNameEdit');
 const container = document.querySelector('.container');
 const containerProjectss = document.querySelector('.containerProjectss');
 const containerProjectssSelect = document.querySelector('.containerProjectssSelect');
-const tareaProjectDom = document.querySelector('.tareaProjectDom');
+// const tareaProjectDom = document.querySelector('.tareaProjectDom');
 const projectName = document.querySelector('.projectName');
+const tareaProjectDom = document.querySelector('.tareaProject');
 let almacenar = [];
 
 let almacenarProject=[];
@@ -68,9 +69,9 @@ let Project = class Project{
 		
 		
 		btnAgregar.addEventListener('click',()=>{
-			console.log('visible');
-			tareaProject.style.visibility='visible';
-			projectName.innerText= project.nameProject;
+			tareaProjectDom.style.visibility='visible';
+			// console.log('visible');			
+			projectName.innerText= this.nameProject;
 		})
 		btnEliminar.addEventListener('click',()=>{
 			console.log('btneliminar',project)
@@ -197,10 +198,31 @@ let Tarea = class Tarea{
 }	
 
 
-
+let TareaProject = class TareaProject extends Tarea{
+	constructor(numId,title, desc, dueDate, project,complete){
+		super(numId,title, desc, dueDate,complete);		
+		this.project = project
+	}
+	set setNameProject(project){
+		this.project = project	
+	}
+	guardar(){		
+		
+		almacenar.push(this.getLeer);
+		// almacenar.push(b)
+		// console.log(almacenar)	
+	}
+	get getLeer(){
+		 let c = super.getLeer
+		 c.project = this.project		
+		return c
+	}
+	
+}
 
 
 exports.almacenar = almacenar;
 exports.Tarea = Tarea;
 exports.almacenarProject = almacenarProject;
+exports.TareaProject =TareaProject;
 exports.Project = Project;

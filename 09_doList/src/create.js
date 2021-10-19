@@ -1,7 +1,9 @@
 const clases = require('./clases.js');
 const container = document.querySelector('.container');
-const containerProjectssSelect = document.querySelector('.containerProjectssSelect')
-const containerProjectss = document.querySelector('.containerProjectss')
+const containerProjectssSelect = document.querySelector('.containerProjectssSelect');
+const containerProjectss = document.querySelector('.containerProjectss');
+const projectName = document.querySelector('.projectName');
+const tareaProjectDom = document.querySelector('.tareaProject');
 function getFormulario(e){
 	e.preventDefault();
 	//si es taabajo no la corre y hay quilombo 
@@ -70,10 +72,6 @@ function verificarNombreProject(nameProject){
 
 //muestra en el dom el projecto y sus tareas
 function showTareaProject(nameProject){
-	
-
-	
-	
    clases.almacenar.forEach(elem=>{
 	   if(elem.project==nameProject){
 		   let tarea = mostrarDatos(elem);
@@ -82,8 +80,37 @@ function showTareaProject(nameProject){
 })
 }
 
+function tareaProject(e){
+	e.preventDefault();
+	tareaProjectDom.style.visibility = 'hidden'
+	let infoName = this.nameTareaProject.value;
+	if (infoName=='') {return alert('nombre invalido')}
+	let infoTask = this.descTareaProject.value;
+	let infoDate = this.dateTareaProject.value;
+	
+	
+	// console.log('pn',projectNames)
+	let numId = crearId(clases.almacenar);
+	// console.log(numId);
+	let elem = new clases.TareaProject();
+		
+		elem.setTitle = infoName;		
+		elem.setDesc = infoTask;
+		elem.setDueDate = infoDate;
+		elem.setNameProject = projectName.innerHTML;
+		elem.setId=numId;
+	elem.guardar();			
+	console.log(elem.getLeer)
+	containerProjectss.appendChild(elem.mostrarDatos)
+	
+	//es para mostrar la tarea
+	// bsucarPorjecto(projectName.innerHTML)
+	
+}
+
 exports.getFormulario = getFormulario;
 exports.createProject = createProject;
 
 exports.showTareaProject = showTareaProject;
+exports.tareaProject = tareaProject;
 
