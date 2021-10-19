@@ -44,7 +44,8 @@ function createProject(e){
 	project.guardar()	
 	
 	console.log(project.getLeer);
-	containerProjectssSelect.appendChild(createSelect(project.getLeer))
+	// console.log(project.createSelect())
+	 containerProjectssSelect.appendChild(createSelect(project.getLeer))
 }
 
 //recorre el array que se le pase para crear un id
@@ -56,6 +57,7 @@ function crearId(array){
 			let lastId = array[array.length-1];			
 			numId = parseInt(lastId.numId) +1	;		
 		}
+		
 		return numId;
 }
 
@@ -111,25 +113,25 @@ function tareaProject(e){
 	// bsucarPorjecto(projectName.innerHTML)
 	
 }
-
-function createSelect(elem){
+function createSelect(project){
 	let div = document.createElement('DIV');
 	let h2 = document.createElement('h2');
 	
 	div.classList.add('divProjectSelect')
-	div.classList.add(elem);
-	h2.innerText=  elem;
+	div.classList.add(project.nameProject);
+	h2.innerText=  project.nameProject;
 	div.appendChild(h2);
 	div.addEventListener('click',()=>{		
 		divSelect.mostrarProjectss()
 		// let elem = this.mostrarProject
-		mostrarProject(elem);
+		mostrarProject(project.nameProject);
 		// showTareaProject(elem.nameProject)
 		})
 		
 	return (div)
 }
-function mostrarProject(project){
+
+function mostrarProject(nameProject){
 	
 	let cont = document.createElement('DIV');
 	let h2 = document.createElement('H2');
@@ -140,9 +142,9 @@ function mostrarProject(project){
 	btnAgregar.innerHTML='<i class="fas fa-plus"></i>';
 	btnEliminar.innerHTML = 'eliminarProject';
 	// btnAgregar.setAttribute('type','submit')
-	cont.setAttribute('name',project.nameProject);
-	cont.classList.add(project.nameProject);
-	h2.innerText = project.nameProject;
+	cont.setAttribute('name',nameProject);
+	cont.classList.add(nameProject);
+	h2.innerText = nameProject;
 	
 	cont.appendChild(h2);
 	cont.appendChild(btnAgregar);
@@ -153,37 +155,38 @@ function mostrarProject(project){
 	btnAgregar.addEventListener('click',()=>{
 		console.log('visible');
 		tareaProjectDom.style.visibility='visible';
-		projectName.innerText= project.nameProject;
+		projectName.innerText= nameProject;
 	})
 	btnEliminar.addEventListener('click',()=>{
-		console.log('btneliminar',project)
-			eliminarProjecto(project)
+		// console.log('btneliminar',this)
+			eliminarProjecto(nameProject)
 	})
 	
 }
 
-function eliminarProjecto(project){
+function eliminarProjecto(nameProject){
 	let confirmar = confirm('Seguro que desea eliminar el proyecto?');
 	if(confirmar){
-		borrarTarea()
-		borrarProject()
-		actualizarSelect()
+		borrarTarea(nameProject);
+		borrarProject(nameProject);
+		
+		actualizarSelect();
 }
 function borrarTarea(){
 	//borra tarea
 	clases.almacenar.forEach((elem,index,object)=>{
 		console.log('eliminar tarea')	
-		if(elem.project==project.nameProject){
+		if(elem.project==nameProject){
 			console.log(elem);
 			object.splice(index,1);							
 		}
 	})
 }		
-function borrarProject(){
+function borrarProject(nameProject){
 	//borra proyecto
 	clases.almacenarProject.forEach((elem,index,object)=>{
 		console.log('afuera',elem)
-	if(elem.nameProject==project.nameProject){
+	if(elem.nameProject==nameProject){
 		object.splice(index,1);		
 		console.log('desde dentro',clases.almacenarProject)
 				
@@ -194,12 +197,14 @@ function borrarProject(){
 function actualizarSelect(){
 	//actualiza el select
 	containerProjectssSelect.innerText='';
-	setTimeout(function(){
+	
 		clases.almacenarProject.forEach(elem=>{
-			console.log('elem',elem)
-			createSelect(elem.nameProject)
+			console.log(elem)
+			containerProjectssSelect.appendChild(createSelect(elem))
+			
+			
 		})	
-	},50)
+
 	
 
 
@@ -216,5 +221,5 @@ exports.createProject = createProject;
 
 exports.showTareaProject = showTareaProject;
 exports.tareaProject = tareaProject;
-exports.createSelect = createSelect;
-
+// exports.createSelect = createSelect;
+exports.eliminarProjecto = eliminarProjecto;

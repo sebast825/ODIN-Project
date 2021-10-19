@@ -13,8 +13,8 @@ let almacenar = [];
 let almacenarProject=[];
 
 let Project = class Project{
-	constructor(nameProject,id){
-		this.numId = id
+	constructor(nameProject,numId){
+		this.numId = numId
 		this.nameProject = nameProject
 	
 	}
@@ -27,14 +27,9 @@ let Project = class Project{
 	get getLeer(){
 		return {numId : this.numId, nameProject : this.nameProject}
 	}
-	guardar(){
-		
-		almacenarProject.push({nameProject:this.nameProject})
-		
+	guardar(){		
+		almacenarProject.push(this.getLeer)		
 	}
-	
-	
-		
 	
 	
 }
