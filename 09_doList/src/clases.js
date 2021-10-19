@@ -68,17 +68,6 @@ let Tarea = class Tarea{
 		
 	}
 	
-	
-
-	
-	
-	get paraMasaDELANTE(){
-		let a = this.mostrarDatos;
-		let elem = document.createElement('h2');
-		elem.innerHTML='ahsdhasdh'
-		a.appendChild(elem)
-		return a
-	}
 }	
 
 
