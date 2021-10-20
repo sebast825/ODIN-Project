@@ -15,7 +15,7 @@ function eliminarProjecto(nameProject){
 		divSelect.mostrarTareas()
 }
 }
-function borrarTarea(){
+function borrarTarea(nameProject){
 	//borra tarea
 	clases.almacenar.forEach((elem,index,object)=>{
 		console.log('eliminar tarea')	
