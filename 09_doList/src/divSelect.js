@@ -96,10 +96,10 @@ function mostrarTotalToday(){
 //verifica la ficha a ver si entra en containerToday
 function verificarFecha(elem){
 	
-	console.log(elem)
+	// console.log(elem)
 	
 	if(elem.dueDate!=undefined){
-		console.log(elem)
+		// console.log(elem)
 		let atr = fecha.htmlToday(elem.dueDate)
 		if(atr){
 			

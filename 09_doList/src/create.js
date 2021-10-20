@@ -2,6 +2,7 @@ const clases = require('./clases.js');
 const divSelect = require ('./divSelect')
 const delet = require ('./delet')
 const edit = require('./edit')
+const menu = require('./menu')
 const localStorage = require('./localStorage')
 const container = document.querySelector('.container');
 const containerProjectssSelect = document.querySelector('.containerProjectssSelect');
@@ -132,7 +133,7 @@ function createSelect(project){
 	
 			mostrarProject(project.nameProject);
 			showTareaProject(project)
-		
+			menu.showMenu();
 		
 		console.log(project)
 		})
@@ -164,7 +165,8 @@ let descTask = document.createElement('P');
 let dateTask = document.createElement('P');
 let btnDelete = document.createElement('P');
 let btnEdit = document.createElement('P');
-
+let btnCheck = document.createElement('input');
+btnCheck.setAttribute('type','checkbox')
 cont.classList.add('divTarea');
 descDateDiv.classList.add('descDate');
 btnDiv.classList.add('btnDiv');
@@ -174,19 +176,33 @@ dateTask.classList.add('dateTask');
 
 btnDelete.innerHTML='<i class="fas fa-trash-alt"></i>';
 btnEdit.innerHTML = '<i class="fas fa-edit"></i>';
-nameTask.innerText=elem.title;
+nameTask.innerText=elem.title+ '    ';
 descTask.innerText = elem.desc;
 dateTask.innerText = elem.dueDate;
 
 btnDiv.appendChild(btnDelete);
 btnDiv.appendChild(btnEdit);
-
+nameTask.appendChild(btnCheck)
 descDateDiv.appendChild(descTask);
 descDateDiv.appendChild(dateTask);
 cont.appendChild(nameTask);
 miniCont.appendChild(descDateDiv);
 miniCont.appendChild(btnDiv);
 cont.appendChild(miniCont)
+
+if(elem.complete)btnCheck.checked=true
+	btnCheck.addEventListener('click',()=>{
+		if(elem.complete){
+			console.log('cjeck')
+			elem.complete=false;
+			cont.classList.remove('completeTask');
+		}else{
+			
+			elem.complete=true;
+			cont.classList.add('completeTask')
+		}
+	})
+	
 btnEdit.addEventListener('click',()=>{
 	formularioEdit.style.visibility='visible';
 	edit.editHijo(elem)

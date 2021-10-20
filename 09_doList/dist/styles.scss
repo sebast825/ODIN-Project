@@ -295,6 +295,7 @@
 			.containerProjectss{
 				padding-top: 0px;
 			}
+			
 			.divProject{
 				background-color: RED;
 				display: flex;
@@ -311,6 +312,10 @@
 						color: #ccc;
 					}
 				}
+				
+			}
+			.completeTask{
+				text-decoration: line-through;
 			}
 			
 		}
@@ -336,8 +341,11 @@
 		z-index: 500;
 		:hover{
 			color: #ccc;
-		}
+		}		
 		
+		}
+		.barraColor{
+			color: #eee;
 		}
 		.formsPrincpales{
 			position: relative;

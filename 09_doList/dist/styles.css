@@ -359,6 +359,10 @@
   color: #ccc;
 }
 
+.contenedorTotal .vemosTexto .vemos .completeTask {
+  text-decoration: line-through;
+}
+
 @media screen and (max-width: 750px) {
   .contenedorTotal .forms-barra {
     margin-top: 0.5rem;
@@ -379,6 +383,9 @@
   }
   .contenedorTotal .forms-barra :hover {
     color: #ccc;
+  }
+  .contenedorTotal .barraColor {
+    color: #eee;
   }
   .contenedorTotal .formsPrincpales {
     position: relative;
