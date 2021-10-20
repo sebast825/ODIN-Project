@@ -28,7 +28,7 @@ function getFormulario(e){
 	// elem.guardarInfo();			
 	 let info = elem.getLeer;
 	// console.log(info)
-	container.appendChild(mostrarDatos(elem))
+	container.prepend(mostrarDatos(elem))
 	localStorage.guardar_LocalStorage()
 	// divSelect.colocarTareaEn(info);
 	

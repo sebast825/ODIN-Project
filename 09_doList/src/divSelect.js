@@ -77,7 +77,7 @@ function mostrarTotalTareas(){
 	clases.almacenar.forEach(elem=>{
 		// console.log('mosstartareastotales')
 		let tarea = create.mostrarDatos(elem);
-		container.appendChild(tarea)
+		container.prepend(tarea)
 	})
 }
 
