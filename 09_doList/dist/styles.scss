@@ -1,8 +1,11 @@
 *{
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 
 }
+
+// $heighContSelect:7rem
 .contenedorTotal{
 	display: flex;
 	 position: relative;
@@ -39,6 +42,7 @@
 			background-color: #fee;
 			color: #000;
 			// border: 2px solid black;
+			
 		}
 		.formulario,
 		.createProject{
@@ -63,7 +67,9 @@
 			padding-bottom:0 ;		
 			margin-left: -0.5rem;
 			padding-bottom: 0.3rem;			
-			
+			:hover{
+				color: #fff;
+			}
 		} 
 		.allProjects{
 			border: none;
@@ -82,7 +88,10 @@
 			border-bottom:  solid white;
 			max-height: 7rem;
 			overflow: hidden;
-			overflow-y: scroll;
+			
+			
+				overflow-y:scroll;
+		
 			scroll-behavior: smooth;
 			/* Track */
 			&::-webkit-scrollbar{
@@ -182,7 +191,7 @@
 				width: 8rem;
 				align-self: flex-end;
 			}
-
+			
 			}
 
 			
@@ -192,22 +201,9 @@
 			width: 100%;
 			height: 100%;
 			display: flex;
-			flex-direction: column;
+			flex-direction: row;
 			
-			.texto{
-				width: 100%;
-				 height: 20%;
-				position: relative;
-				background-color: purple;
-				display: flex;
-				// justify-content:baseline;
-				align-items: center;
-				// z-index: 150;
-				h2{
-					margin-left: 10%;
-					color: white;
-				}
-			}
+			
 			.vemos{
 			background-color: black;
 			width: 100%;
@@ -219,12 +215,41 @@
 				
 				visibility: visible;
 				width: 100% ;
-				height:  100% ;
+				height: 100%;
+				max-height:  100%;				
+				 padding-top:3rem ;
+				 padding-bottom: 3rem;
+				
 				position: absolute;
 				background-color: #4be;
+				overflow: hidden;
+				overflow-y: scroll;
+				scroll-behavior: smooth;
+			/* Track */
+			&::-webkit-scrollbar{
+				width: 0.5rem;
+				height: 0.3rem;
+				
+				
+			}
+			&::-webkit-scrollbar-track {
+				background: #f1f1f1;
+			}
+			
+			/* Handle */
+			&::-webkit-scrollbar-thumb {
+				background: #000;
+			}
+			
+			/* Handle on hover */
+			&::-webkit-scrollbar-thumb:hover {
+				background: #468;
+			}
+			
 				
 				.divTarea{
 					margin: 0.5rem 5rem;
+					// padding: 0 5rem;
 					padding-bottom: 0.5rem;
 					border-bottom: 1px solid white;
 					h2{
@@ -267,6 +292,9 @@
 				}
 				
 			}
+			.containerProjectss{
+				padding-top: 0px;
+			}
 			.divProject{
 				background-color: RED;
 				display: flex;
@@ -295,19 +323,19 @@
 
 @media screen and (max-width: 750px) {
 	.contenedorTotal{
-		// position: relative;
+		
 		.forms-barra{
-			margin-top: 0.5rem;
-		right: 15%;
+		margin-top: 0.5rem;
+		right: 10%;
 		position: absolute;
 		width: 100%;
 		 display: flex;
 		 justify-content:flex-end ;
 		 align-items: center;
-		
+		font-size: 1.4rem;
 		z-index: 500;
 		:hover{
-			color: black;
+			color: #ccc;
 		}
 		
 		}
@@ -334,8 +362,9 @@
 		}
 
 		.vemosTexto{
-			 display: flex;
-			position: absolute	;
+			
+			 position: absolute	;
+			
 	
 			transition:  all 0.5s linear;
 			
@@ -345,6 +374,59 @@
 		.colorActive{
 			opacity: 0.4;
 			transition: all 0.5s linear;
+		}
+		.container, .containerToday, .containerProjectss {
+			
+			
+			.divTarea{
+			
+				padding: 0.5rem; 
+				margin-left:2rem !important ;
+				
+				width: 80%;
+				height: auto;
+				
+				h2{
+					margin: -10px;
+					padding: 0px;
+				}
+
+				.miniCont{
+					display: flex;
+					margin: 0.5rem 0;
+				
+					justify-content: space-between;
+				}
+				
+				.descDate{
+					width: 90%;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+					align-content: space-around;
+					
+					.descTask{
+						min-width: auto;
+						max-width: min-content;
+						
+					}
+					.dateTask{
+						min-width: min-content;
+					}
+					
+				}
+				.btnDiv{
+					min-width:10% ;
+					display: flex;
+					justify-content: space-around;
+					gap: 0.5rem;
+					p{
+						:hover{
+							color: #ccc;
+						}
+					}
+				}
+				}	
 		}
 		
 	}
