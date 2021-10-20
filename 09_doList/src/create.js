@@ -231,17 +231,24 @@ function mostrarProject(nameProject){
 		localStorage.guardar_LocalStorage()
 	})
 	btnEliminar.addEventListener('click',()=>{
-		// console.log('btneliminar',this)
-			delet.eliminarProjecto(nameProject)
-			localStorage.guardar_LocalStorage()
-			localStorage.guardar_LocalStorageProject()
+		
+		delet.eliminarProjecto(nameProject);
+		localStorage.guardar_LocalStorage();
+		localStorage.guardar_LocalStorageProject();
+		recorrerAlmacenarProject();
 	})
 
 	containerProjectss.appendChild(cont);
 	
 }
 
+function recorrerAlmacenarProject(){
 	
+	containerProjectssSelect.innerText='';
+	clases.almacenarProject.forEach(elem=>{
+		containerProjectssSelect.appendChild(createSelect(elem))
+	})
+}
 
 
 
@@ -252,4 +259,5 @@ exports.showTareaProject = showTareaProject;
 exports.tareaProject = tareaProject;
 // exports.createSelect = createSelect;
 exports.mostrarDatos = mostrarDatos;
-
+exports.createSelect = createSelect;
+exports.recorrerAlmacenarProject = recorrerAlmacenarProject;

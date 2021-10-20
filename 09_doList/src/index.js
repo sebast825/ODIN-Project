@@ -1,8 +1,9 @@
 const menu = require('./menu.js');
 const create = require('./create.js');
-const clases = require('./clases.js');
+const clases = require('./clases');
 const divSelect = require('./divSelect')
 const edit = require('./edit')
+const localStorage = require('./localStorage')
 const formsBarra = document.querySelector('.barra');
 const formularioEditBtn = document.querySelector('.formularioEdit-btn');
 
@@ -23,4 +24,10 @@ formsBarra.addEventListener('click',menu.showMenu)
 tareasSelect.addEventListener('click',divSelect.mostrarTareas)
 todaySelect.addEventListener('click',divSelect.mostrarToday)
 
-divSelect.mostrarTareas()
+
+localStorage.recuperar_LocalSotrage()
+
+
+//carga lo del local sotrage
+create.recorrerAlmacenarProject()
+divSelect.mostrarTareas();

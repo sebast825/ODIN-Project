@@ -30,10 +30,10 @@ function mostrarToday(){
 	containerToday.style.visibility = 'visible';
 
 }
-function mostrarProjectss(e){
+function mostrarProjectss(){
 	// e.preventDefault()
 	activeSelect('project')
-	containerProjectss.innerText='';
+	containerProjectss.innerText='asdasddsa';
 	mostrar();
 
 	containerProjectss.style.visibility = 'visible';
@@ -84,7 +84,7 @@ function mostrarTotalTareas(){
 //al clickiar en Today muestra todas las tareas del dia
 function mostrarTotalToday(){
 	containerToday.innerText='';
-	console.log('asd')
+	
 	clases.almacenar.forEach(elem=>{
 		let verFecha = verificarFecha(elem);
 		if(verFecha){
@@ -95,14 +95,14 @@ function mostrarTotalToday(){
 }
 //verifica la ficha a ver si entra en containerToday
 function verificarFecha(elem){
-	console.log('asd')
+	
 	console.log(elem)
-	console.log('comienzo')
+	
 	if(elem.dueDate!=undefined){
 		console.log(elem)
 		let atr = fecha.htmlToday(elem.dueDate)
 		if(atr){
-			console.log('entro')
+			
 			return true	
 		}
 }

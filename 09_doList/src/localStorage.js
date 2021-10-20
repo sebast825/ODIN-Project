@@ -7,25 +7,31 @@ function recuperar_LocalSotrage(){
 	let project = JSON.parse(localStorage.getItem('project'));
 	// console.log(tarea)
 	// console.log(project)
-	tarea.forEach(element => {
-		clases.almacenar.push(element);
-	});
-	project.forEach(elem => {
-		clases.almacenarProject.push(elem)
-	})
-	// console.log(clases.almacenar)
-  }
+	
+		tarea.forEach(element => {
+			clases.almacenar.push(element);
+		});
+	
+	
+	
+		project.forEach(elem => {
+			clases.almacenarProject.push(elem)
+		})
+		
+	}
+
+  
   
  
   
-  function guardar_LocalStorage(){
-	localStorage.setItem('tarea',JSON.stringify(clases.almacenar))
-	
+  function guardar_LocalStorage(){	 
+	localStorage.setItem('tarea',JSON.stringify(clases.almacenar))	
   }
-  function guardar_LocalStorageProject(){
+
+  function guardar_LocalStorageProject(){	 
 	localStorage.setItem('project',JSON.stringify(clases.almacenarProject))
   }
-  recuperar_LocalSotrage()
+ 
   
 
   exports.guardar_LocalStorage = guardar_LocalStorage;
