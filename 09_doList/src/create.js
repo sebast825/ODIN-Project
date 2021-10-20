@@ -91,9 +91,9 @@ function tareaProject(e){
 	let infoDate = this.dateTareaProject.value;
 	
 	
-	// console.log('pn',projectNames)
+	
 	let numId = crearId(clases.almacenar);
-	// console.log(numId);
+	
 	let elem = new clases.TareaProject();
 		
 		elem.setTitle = infoName;		
@@ -102,11 +102,10 @@ function tareaProject(e){
 		elem.setNameProject = projectName.innerHTML;
 		elem.setId=numId;
 	elem.guardar();			
-	console.log(elem.getLeer)
-	containerProjectss.appendChild(mostrarDatos(elem))
-	localStorage.guardar_LocalStorage()
-	//es para mostrar la tarea
-	// bsucarPorjecto(projectName.innerHTML)
+	console.log(elem.getLeer);
+	containerProjectss.appendChild(mostrarDatos(elem));
+	localStorage.guardar_LocalStorage();
+	
 	
 }
 
@@ -144,10 +143,10 @@ function createSelect(project){
 //muestra en el dom el projecto y sus tareas
 function showTareaProject(project){
 	
-
-	
+divSelect.mostrarProjectss()
+mostrarProject(project.nameProject)
    clases.almacenar.forEach(elem=>{
-	   console.log(elem)
+	
 	   if(elem.project==project.nameProject){
 		   let tarea = mostrarDatos(elem);
 		   containerProjectss.appendChild(tarea)

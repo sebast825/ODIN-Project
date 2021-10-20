@@ -3,6 +3,7 @@ const clases = require('./clases.js');
 const create = require('./create');
 const divSelect = require('./divSelect');
 const projectNameEdit = document.querySelector('.projectNameEdit');
+const localStorage = require('./localStorage')
 
 
 function editHijo(elem){
@@ -21,29 +22,25 @@ function editHijo(elem){
 function actualziarDatos(e){
 	let form = document.formularioEdit;
 	e.preventDefault();
-	 console.log(clases.almacenar);
+	//  console.log(clases.almacenar);
 	clases.almacenar.forEach(elem=>{
 		if(elem.numId==projectNameEdit.innerHTML){
 			elem.title = form.nameTaskEdit.value;
 			elem.desc = form.descTaskEdit.value;
 			elem.dueDate = form.dateTaskEdit.value;
 			// console.log(elem.getLeer)
+		
+			divSelect.insertarDom(elem.project)
 	}}
+	
 
 	
 )
+localStorage.guardar_LocalStorage()
 
 document.formularioEdit.style.visibility = 'hidden'
-//serparaqr en otra funcion, es para mostrar todos los datos
-clases.almacenar.forEach(elem=>{
-	let obj = new clases.Tarea();
-	obj.setTitle =elem.title ;
-	obj.setDesc = elem.desc;
-	obj.setId = elem.numId;
-	obj.setDueDate = elem.dueDate;
-	container.appendChild(create.mostrarDatos(obj))
-})
-divSelect.mostrarTareas()
+
+
 }
 exports.actualziarDatos = actualziarDatos;
 

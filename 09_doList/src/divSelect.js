@@ -33,7 +33,7 @@ function mostrarToday(){
 function mostrarProjectss(){
 	// e.preventDefault()
 	activeSelect('project')
-	containerProjectss.innerText='asdasddsa';
+	containerProjectss.innerText='';
 	mostrar();
 
 	containerProjectss.style.visibility = 'visible';
@@ -107,4 +107,31 @@ function verificarFecha(elem){
 		}
 }
 }
-module.exports={mostrarTareas,mostrarToday,mostrarProjectss,colocarTareaEnActualizado}
+
+function insertarDom(nameProject){
+	let func = colocarTareaEnActualizado()
+	if(func == true){
+		mostrarTareas()
+	}else if (func == false){
+		mostrarToday()
+	}else if (func == undefined){
+		// console.log('hasta aca',nameProject)
+		bsucarPorjecto(nameProject)
+		// console.log('atr')
+	}else{
+		console.log('erro insertarDom')
+	}
+}
+
+//busca el projeto
+function bsucarPorjecto(name){
+	clases.almacenarProject.forEach(elem=>{
+		
+		if(elem.nameProject==name){
+			// console.log('buscpro',elem.nameProject)
+			create.showTareaProject(elem)
+		}
+	})
+}
+
+module.exports={mostrarTareas,mostrarToday,mostrarProjectss,colocarTareaEnActualizado, insertarDom}
